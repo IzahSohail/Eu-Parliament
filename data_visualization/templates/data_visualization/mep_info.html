@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MEP Info</title>
+</head>
+<body>
+    <h1>MEP Info</h1>
+    <div class="mep-container">
+        {% if mep.photo %}
+            <img class="mep-photo" src="{{ mep.photo }}" alt="{{ mep.name }}">
+        {% else %}
+            <img class="mep-photo" src="path/to/placeholder/image.png" alt="{{ mep.name }}">
+        {% endif %}
+        <p><b>ID:</b> {{ mep.mep_id }}</p>
+        <p><b>Name:</b> {{ mep.name }}</p>
+        <p><b>First Name:</b> {{ mep.first_name }}</p>
+        <p><b>Last Name:</b> {{ mep.last_name }}</p>
+        <p><b>Country:</b> {{ mep.country }}</p>
+        <p><b>Gender:</b> {{ mep.gender }}</p>
+        <p><b>Date of Birth:</b> {{ mep.date_of_birth }}</p>
+        {% if mep.date_of_death %}
+            <p><b>Date of Death:</b> {{ mep.date_of_death }}</p>
+        {% endif %}
+        <p><b>Hometown:</b> {{ mep.hometown }}</p>
+    </div>
+</body>
+</html>
+

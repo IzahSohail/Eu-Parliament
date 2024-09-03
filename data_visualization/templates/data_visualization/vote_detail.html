@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote Detail</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        /* TODO: move all styling to a css file */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #495057;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            font-weight: 600;
+            /* center align text */
+            text-align: center;
+
+        }
+        .header {
+            display: flex;
+            border-bottom: 2px solid #007bff;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .info {
+            padding: 6px 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .chart {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+        }
+        .details-chart {
+            display: flex;
+            align-items: center; /* Center align items vertically */
+            justify-content: space-between;
+        }
+        .details {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .chart-container-small {
+            width: 300px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Vote Detail</h1>
+            <p>{{ vote_date }}</p>
+        </div>
+        <div class="details-chart">
+            <div class="details">
+                <p><b>Vote ID:</b> {{ vote_id }}</p>
+                <p><b>Label:</b> {{ vote_label }}</p>
+                <p><b>Number of Votes:</b> {{ total_votes }}</p>
+                <p><b>Number of Yes:</b> {{ total_yes }}</p>
+                <p><b>Number of No:</b> {{ total_no }}</p>
+                <p><b>Number of Abstentions:</b> {{ total_abstain }}</p>
+            </div>
+            <div class="chart-container chart-container-small">
+                <canvas id="overallVoteResult"></canvas>
+            </div>
+        </div>
+
+        <!-- <h2>Vote Distribution by Political Group</h2>
+        <div class="chart-container">
+            <img class="chart" src="{{ chart_groups }}" alt="Likert Plot by Political Groups">
+        </div>
+
+        <h2>Vote Distribution by Country</h2>
+        <div class="chart-container">
+            <img class="chart" src="{{ chart_countries }}" alt="Likert Plot by Countries">
+        </div> -->
+
+        
+        <div id="plotly-div"></div>
+        <h2>Vote Distribution by Political Group</h2>
+        <div id="plotly-div2"></div>
+        <h2>Vote Distribution by Country</h2>
+        <div id="plotly-div3"></div>
+
+        <a href="{% url 'index' %}" class="back-link">Back to Search</a>
+    </div>
+
+    <script>
+        // Overall Vote Result Chart
+        const ctx = document.getElementById('overallVoteResult').getContext('2d');
+        const overallVoteResultChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Yes', 'No', 'Abstain'],
+                datasets: [{
+                    data: [{{ percent_yes }}, {{ percent_no }}, {{ percent_abstain }}],
+                    backgroundColor: ['#508D69', '#EE2233', '#FFC000'],
+                    hoverBackgroundColor: ['#66c084', '#f65456', '#ffd23f']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const countries = [
+            {% for country in country_percentages.keys %}
+                '{{ country }}',
+            {% endfor %}
+        ];
+        const in_favor_percentages = [
+            {% for in_favor in country_percentages.values %}
+                {{ in_favor }},
+            {% endfor %}
+        ];
+        const trace1 = {
+            geo: 'geo',
+            type: 'choropleth',
+            z: in_favor_percentages,
+            showscale: true,
+            locationmode: 'country names',
+            locations: countries,
+            zmin: 0,
+            zmax: 100,
+            colorscale: [
+                [0, 'rgb(230, 236, 255)'], 
+                [1, 'rgb(0, 123, 255)'] 
+            ],
+            colorbar: {
+                title: 'In Favor (%)',
+                titleside: 'right',
+                ticksuffix: '%',
+                showticksuffix: 'all',
+                thickness: 20
+            }
+        };
+    
+        const data = [trace1];
+        const layout = {
+            width: 800, 
+            height: 800, 
+            
+            geo: {
+                scope: 'europe',
+                domain: {
+                    x: [0, 1],
+                    y: [0, 1]
+                },
+                lataxis: {range: [35.0, 70.0]},
+                lonaxis: {range: [-25.0, 45.0]},
+                showland: true,
+                landcolor: 'rgb(229, 229, 229)',
+                showframe: false,
+                projection: {type: 'Mercator'},
+                resolution: 50,
+                countrycolor: 'rgb(255, 255, 255)',
+                coastlinecolor: 'rgb(0, 0, 0)',
+                showcoastlines: true
+            },
+            title: {
+                text: 'Votes in the Europe Map',
+                font: {
+                    size: 24,
+                    color: 'rgb(0, 0, 0)'
+                },
+                xref: 'paper',
+                x: 0.5
+            }
+        };
+    
+        Plotly.newPlot('plotly-div', data, layout);
+    </script>
+
+    <script>
+        // Vote distribution by POLITICAL GROUPS
+        const group_votes_totaled = {{ group_votes_totaled|safe }};
+
+        // function to wrap text for the labels 
+        const wrapText = (text, maxLength) => {
+            let wrappedText = [];
+            let words = text.split(' ');
+            let line = '';
+
+            for (let word of words) {
+                if ((line + word).length > maxLength) {
+                    wrappedText.push(line.trim());
+                    line = word + ' ';
+                } else {
+                    line += word + ' ';
+                }
+            }
+
+            wrappedText.push(line.trim());
+            return wrappedText.join('<br>');
+        };
+
+        const categories = group_votes_totaled.map(vote => wrapText(vote.group, 25));
+        const yes_votes = group_votes_totaled.map(vote => vote.total_yes);
+        const no_votes = group_votes_totaled.map(vote => vote.total_no);
+        const abstain_votes = group_votes_totaled.map(vote => vote.total_abstain);
+
+        const no_positions = [];
+        const abstain_positions = [];
+        const yes_positions = [];
+        
+        // calculate max val for x-axis
+        let max_vote_count = 0;
+
+        for (let i = 0; i < no_votes.length; i++) {
+            const no = no_votes[i];
+            const abstain = abstain_votes[i];
+            const yes = yes_votes[i];
+
+            const total_votes = no + abstain + yes;
+            if (total_votes > max_vote_count) {
+                max_vote_count = total_votes;
+            }
+
+            const abstain_center = abstain / 2;
+
+            const no_values = [];
+            const no_start = -(abstain_center);
+            const no_end = -(abstain_center + no);
+            no_values.push(no_start);
+            no_values.push(no_end);
+            no_positions.push(no_values);
+
+            const yes_values = [];
+            const yes_start = abstain_center;
+            const yes_end = yes_start + yes;
+            yes_values.push(yes_start);
+            yes_values.push(yes_end);
+            yes_positions.push(yes_values);
+
+            const abstain_values = [];
+            const abstain_start = 0 - (abstain / 2);
+            const abstain_end = abstain_center;
+            abstain_values.push(abstain_start);
+            abstain_values.push(abstain_end);
+            abstain_positions.push(abstain_values);
+        }
+
+        // make the range a multiple of 10
+        const max_range = Math.ceil(max_vote_count / 10) * 10;
+
+        const traces = [];
+
+        // 'no' positions
+        for (let i = 0; i < no_positions.length; i++) {
+            traces.push({
+                y: [categories[i], categories[i]],
+                x: no_positions[i],
+                mode: 'lines+markers',
+                line: { color: 'red', width: 20 },
+                marker: { opacity: 0 },
+                name: 'No',
+                showlegend: i === 0,
+                hoverinfo: 'text',
+                hovertext: 'Number of "No" votes: ' + no_votes[i],
+                hoveron: 'points+fills',
+                hoverlabel: {
+                    namelength: 0,
+                    font: {
+                        size: 14
+                    },
+                    bgcolor: 'red',
+                    bordercolor: 'black'
+                }
+            });
+        }
+
+        // 'abstain' positions
+        for (let i = 0; i < abstain_positions.length; i++) {
+            traces.push({
+                y: [categories[i], categories[i]],
+                x: abstain_positions[i],
+                mode: 'lines+markers',
+                line: { color: 'yellow', width: 20 },
+                marker: { opacity: 0 },
+                name: 'Abstain',
+                showlegend: i === 0,
+                hoverinfo: 'text',
+                hovertext: 'Number of "Abstain" votes: ' + abstain_votes[i],
+                hoveron: 'points+fills',
+                hoverlabel: {
+                    namelength: 0,
+                    font: {
+                        size: 14
+                    },
+                    bgcolor: 'yellow',
+                    bordercolor: 'black'
+                }
+            });
+        }
+
+        // yes positions
+        for (let i = 0; i < yes_positions.length; i++) {
+            traces.push({
+                y: [categories[i], categories[i]],
+                x: yes_positions[i],
+                mode: 'lines+markers',
+                line: { color: 'green', width: 20 },
+                marker: { opacity: 0 },
+                name: 'Yes',
+                showlegend: i === 0,
+                hoverinfo: 'text',
+                hovertext: 'Number of "Yes" votes: ' + yes_votes[i],
+                hoveron: 'points+fills',
+                hoverlabel: {
+                    namelength: 0,
+                    font: {
+                        size: 14
+                    },
+                    bgcolor: 'green',
+                    bordercolor: 'black'
+                }
+            });
+        }
+
+        const layout2 = {
+            barmode: 'relative',
+            xaxis: {
+                title: 'Votes',
+                tickvals: [-max_range, -max_range/2, 0, max_range/2, max_range],
+                ticktext: [max_range.toString(), (max_range/2).toString(), '0', (max_range/2).toString(), max_range.toString()],
+                tickmode: 'array',
+                range: [-max_range, max_range],
+                automargin: true
+            },
+            yaxis: {
+                title: 'Political Groups',
+                tickvals: categories,
+                ticktext: categories,
+                tickmode: 'array',
+                automargin: true,
+                tickangle: 0  // this will make the labels horizontal 
+            },
+            legend: {
+                orientation: 'h',
+                yanchor: 'bottom',
+                y: 1.02,
+                xanchor: 'right',
+                x: 1
+            },
+            margin: {
+                l: 150, 
+                r: 20,   
+                t: 50,   
+                b: 50    
+            },
+            hovermode: 'closest',
+            height: 600
+        };
+
+        Plotly.newPlot('plotly-div2', traces, layout2);
+
+        // second chart for votes BY COUNTRY
+        const country_votes_totaled = {{ country_votes_totaled|safe }};
+
+        const countryCategories = country_votes_totaled.map(vote => wrapText(vote.country, 25));
+        const countryYesVotes = country_votes_totaled.map(vote => vote.total_yes);
+        const countryNoVotes = country_votes_totaled.map(vote => vote.total_no);
+        const countryAbstainVotes = country_votes_totaled.map(vote => vote.total_abstain);
+
+        const countryNoPositions = [];
+        const countryAbstainPositions = [];
+        const countryYesPositions = [];
+
+        let countryMaxVoteCount = 0;
+
+        for (let i = 0; i < countryNoVotes.length; i++) {
+            const no = countryNoVotes[i];
+            const abstain = countryAbstainVotes[i];
+            const yes = countryYesVotes[i];
+
+            const totalVotes = no + abstain + yes;
+            if (totalVotes > countryMaxVoteCount) {
+                countryMaxVoteCount = totalVotes;
+            }
+
+            const abstainCenter = abstain / 2;
+
+            const noValues = [];
+            const noStart = -(abstainCenter);
+            const noEnd = -(abstainCenter + no);
+            noValues.push(noStart);
+            noValues.push(noEnd);
+            countryNoPositions.push(noValues);
+
+            const yesValues = [];
+            const yesStart = abstainCenter;
+            const yesEnd = yesStart + yes;
+            yesValues.push(yesStart);
+            yesValues.push(yesEnd);
+            countryYesPositions.push(yesValues);
+
+            const abstainValues = [];
+            const abstainStart = 0 - (abstain / 2);
+            const abstainEnd = abstainCenter;
+            abstainValues.push(abstainStart);
+            abstainValues.push(abstainEnd);
+            countryAbstainPositions.push(abstainValues);
+        }
+
+    
+        const countryMaxRange = Math.ceil(countryMaxVoteCount / 10) * 10;
+
+        const countryTraces = [];
+
+        // 'no' positions
+        for (let i = 0; i < countryNoPositions.length; i++) {
+            countryTraces.push({
+                y: [countryCategories[i], countryCategories[i]],
+                x: countryNoPositions[i],
+                mode: 'lines+markers',
+                line: { color: 'red', width: 20 },
+                marker: { opacity: 0 },
+                name: 'No',
+                showlegend: i === 0,
+                hoverinfo: 'text',
+                hovertext: 'Number of "No" votes: ' + countryNoVotes[i],
+                hoveron: 'points+fills',
+                hoverlabel: {
+                    namelength: 0,
+                    font: {
+                        size: 14
+                    },
+                    bgcolor: 'red',
+                    bordercolor: 'black'
+                }
+            });
+        }
+
+        // 'abstain' positions
+        for (let i = 0; i < countryAbstainPositions.length; i++) {
+            countryTraces.push({
+                y: [countryCategories[i], countryCategories[i]],
+                x: countryAbstainPositions[i],
+                mode: 'lines+markers',
+                line: { color: 'yellow', width: 20 },
+                marker: { opacity: 0 },
+                name: 'Abstain',
+                showlegend: i === 0,
+                hoverinfo: 'text',
+                hovertext: 'Number of "Abstain" votes: ' + countryAbstainVotes[i],
+                hoveron: 'points+fills',
+                hoverlabel: {
+                    namelength: 0,
+                    font: {
+                        size: 14
+                    },
+                    bgcolor: 'yellow',
+                    bordercolor: 'black'
+                }
+            });
+        }
+
+        // 'yes' positions
+        for (let i = 0; i < countryYesPositions.length; i++) {
+            countryTraces.push({
+                y: [countryCategories[i], countryCategories[i]],
+                x: countryYesPositions[i],
+                mode: 'lines+markers',
+                line: { color: 'green', width: 20 },
+                marker: { opacity: 0 },
+                name: 'Yes',
+                showlegend: i === 0,
+                hoverinfo: 'text',
+                hovertext: 'Number of "Yes" votes: ' + countryYesVotes[i],
+                hoveron: 'points+fills',
+                hoverlabel: {
+                    namelength: 0,
+                    font: {
+                        size: 14
+                    },
+                    bgcolor: 'green',
+                    bordercolor: 'black'
+                }
+            });
+        }
+
+        const layout3 = {
+            barmode: 'relative',
+            xaxis: {
+                title: 'Votes',
+                tickvals: [-countryMaxRange, -countryMaxRange/2, 0, countryMaxRange/2, countryMaxRange],
+                ticktext: [countryMaxRange.toString(), (countryMaxRange/2).toString(), '0', (countryMaxRange/2).toString(), countryMaxRange.toString()],
+                tickmode: 'array',
+                range: [-countryMaxRange, countryMaxRange],
+                automargin: true
+            },
+            yaxis: {
+                title: 'Countries',
+                tickvals: countryCategories,
+                ticktext: countryCategories,
+                tickmode: 'array',
+                automargin: true,
+                tickangle: 0  
+            },
+            legend: {
+                orientation: 'h',
+                yanchor: 'bottom',
+                y: 1.02,
+                xanchor: 'right',
+                x: 1
+            },
+            margin: {
+                l: 150,  
+                r: 20,   
+                t: 50,   
+                b: 50   
+            },
+            hovermode: 'closest',
+            height: 1000
+        };
+
+        Plotly.newPlot('plotly-div3', countryTraces, layout3);
+    </script>
+
+
+
+
+
+
+</body>
+</html>
