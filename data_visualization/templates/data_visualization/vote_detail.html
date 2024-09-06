@@ -5,23 +5,22 @@
     <title>Vote Detail</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         /* TODO: move all styling to a css file */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
+            background-color: #ffffff;
             color: #495057;
             margin: 0;
             padding: 0;
         }
         .container {
-            max-width: 70%;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 95%;
+            margin: 10px auto;
         }
         h1, h2 {
             font-weight: 600;
@@ -79,14 +78,66 @@
         .chart-container-small {
             width: 300px; 
         }
+
+        .navigation .navbar-brand{
+            color:#0056b3;
+            font: 1.5em 'Arial', sans-serif;
+            font-weight: bold; 
+        }
+
+        .navbar{
+            background-color: #fdfeff;
+            padding: 10px;
+            border-bottom: 1px solid #dde0e7;
+        }
+        .nav-item{
+            margin: 0 10px;
+        }
+
+        .nav-item a{
+            color: #0056b3;
+            text-decoration: none;
+        }   
+
+        .navbar-toggler {
+            border: none; /* Remove default border around the hamburger icon */
+        }
+
+        .navbar-toggler-icon {
+            background-color: transparent;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23dde0e7' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid navigation">
+            <a class="navbar-brand" href="{% url 'index' %}">Euro Votes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">MEPs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
-        <div class="header">
+        <!-- <div class="header">
             <h1>Vote Detail</h1>
             <p>{{ vote_date }}</p>
-        </div>
+        </div> -->
         <div class="details-chart">
             <div class="details">
                 <p><b>Vote ID:</b> {{ vote_id }}</p>
@@ -111,14 +162,30 @@
             <img class="chart" src="{{ chart_countries }}" alt="Likert Plot by Countries">
         </div> -->
 
-        
-        <div id="plotly-div"></div>
         <h2>Vote Distribution by Political Group</h2>
         <div id="plotly-div2"></div>
         <h2>Vote Distribution by Country</h2>
         <div id="plotly-div3"></div>
 
+        <div id="plotly-div"></div>
+
         <a href="{% url 'index' %}" class="back-link">Back to Search</a>
+       
+        <h2>MEPs and their Votes</h2>
+            {% for group_name, meps in political_groups.items %}
+            <h3>{{ group_name }}</h3>
+            <ul>
+                {% for mep in meps %}
+                    <li>
+                        <a href = "{% url 'mep_info' mep.mep_id %}"> {{ mep.mep_name }} </a>
+                        (ID: {{ mep.mep_id }}) 
+                        - Vote: {{ mep.vote_type }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    
+        
     </div>
 
     <script>
@@ -250,7 +317,7 @@
         const no_positions = [];
         const abstain_positions = [];
         const yes_positions = [];
-        
+
         // calculate max val for x-axis
         let max_vote_count = 0;
 
@@ -299,7 +366,7 @@
                 y: [categories[i], categories[i]],
                 x: no_positions[i],
                 mode: 'lines+markers',
-                line: { color: 'red', width: 20 },
+                line: { color: 'red', width: 12 },  // Reduced bar width
                 marker: { opacity: 0 },
                 name: 'No',
                 showlegend: i === 0,
@@ -323,7 +390,7 @@
                 y: [categories[i], categories[i]],
                 x: abstain_positions[i],
                 mode: 'lines+markers',
-                line: { color: 'yellow', width: 20 },
+                line: { color: 'yellow', width: 12 },  // Reduced bar width
                 marker: { opacity: 0 },
                 name: 'Abstain',
                 showlegend: i === 0,
@@ -347,7 +414,7 @@
                 y: [categories[i], categories[i]],
                 x: yes_positions[i],
                 mode: 'lines+markers',
-                line: { color: 'green', width: 20 },
+                line: { color: 'green', width: 12 },  // Reduced bar width
                 marker: { opacity: 0 },
                 name: 'Yes',
                 showlegend: i === 0,
@@ -381,7 +448,10 @@
                 ticktext: categories,
                 tickmode: 'array',
                 automargin: true,
-                tickangle: 0  // this will make the labels horizontal 
+                tickangle: 0,  // this will make the labels horizontal 
+                tickfont: {
+                    size: 12
+                }
             },
             legend: {
                 orientation: 'h',
@@ -391,16 +461,19 @@
                 x: 1
             },
             margin: {
-                l: 150, 
+                l: 120,  // Reduced the left margin to make it more compact
                 r: 20,   
-                t: 50,   
-                b: 50    
+                t: 30,   // Reduced the top margin
+                b: 30    // Reduced the bottom margin
             },
             hovermode: 'closest',
-            height: 600
+            height: 600,  // Keep chart height small to fit the compact layout
+            width: 800
+
         };
 
         Plotly.newPlot('plotly-div2', traces, layout2);
+
 
         // second chart for votes BY COUNTRY
         const country_votes_totaled = {{ country_votes_totaled|safe }};
@@ -450,7 +523,6 @@
             countryAbstainPositions.push(abstainValues);
         }
 
-    
         const countryMaxRange = Math.ceil(countryMaxVoteCount / 10) * 10;
 
         const countryTraces = [];
@@ -461,7 +533,7 @@
                 y: [countryCategories[i], countryCategories[i]],
                 x: countryNoPositions[i],
                 mode: 'lines+markers',
-                line: { color: 'red', width: 20 },
+                line: { color: 'red', width: 12 },  // Reduced bar width
                 marker: { opacity: 0 },
                 name: 'No',
                 showlegend: i === 0,
@@ -485,7 +557,7 @@
                 y: [countryCategories[i], countryCategories[i]],
                 x: countryAbstainPositions[i],
                 mode: 'lines+markers',
-                line: { color: 'yellow', width: 20 },
+                line: { color: 'yellow', width: 12 },  // Reduced bar width
                 marker: { opacity: 0 },
                 name: 'Abstain',
                 showlegend: i === 0,
@@ -509,7 +581,7 @@
                 y: [countryCategories[i], countryCategories[i]],
                 x: countryYesPositions[i],
                 mode: 'lines+markers',
-                line: { color: 'green', width: 20 },
+                line: { color: 'green', width: 12 },  // Reduced bar width
                 marker: { opacity: 0 },
                 name: 'Yes',
                 showlegend: i === 0,
@@ -553,16 +625,18 @@
                 x: 1
             },
             margin: {
-                l: 150,  
+                l: 120,  // Reduced the left margin to make it more compact
                 r: 20,   
-                t: 50,   
-                b: 50   
+                t: 30,   // Reduced the top margin
+                b: 30    // Reduced the bottom margin
             },
             hovermode: 'closest',
-            height: 1000
+            height: 600,  // Reduced chart height to make it smaller
+            width: 800
         };
 
         Plotly.newPlot('plotly-div3', countryTraces, layout3);
+
     </script>
 
 

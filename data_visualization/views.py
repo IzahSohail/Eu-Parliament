@@ -191,7 +191,6 @@ def vote_detail(request, vote_id):
             'total_abstain': sum(1 for vote in votes if vote['vote_type'] == 'Abstain')
         })
     country_votes_totaled = sorted(country_votes_totaled, key=lambda x: x['total_yes'], reverse=True)
-
     return render(request, 'data_visualization/vote_detail.html', {
         'vote': vote,
         'vote_date': vote.date,
