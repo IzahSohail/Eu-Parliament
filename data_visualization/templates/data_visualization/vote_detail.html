@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'data_visualization/css/vote_detail.css' %}">
+
     <style>
         /* TODO: move all styling to a css file */
         body {
@@ -152,16 +156,6 @@
             </div>
         </div>
 
-        <!-- <h2>Vote Distribution by Political Group</h2>
-        <div class="chart-container">
-            <img class="chart" src="{{ chart_groups }}" alt="Likert Plot by Political Groups">
-        </div>
-
-        <h2>Vote Distribution by Country</h2>
-        <div class="chart-container">
-            <img class="chart" src="{{ chart_countries }}" alt="Likert Plot by Countries">
-        </div> -->
-
         <h2>Vote Distribution by Political Group</h2>
         <div id="plotly-div2"></div>
         <h2>Vote Distribution by Country</h2>
@@ -170,22 +164,24 @@
         <div id="plotly-div"></div>
 
         <a href="{% url 'index' %}" class="back-link">Back to Search</a>
+        <h2>Political Coalition Graph</h2>
+        <div id="coalition-graph" style="width: 800px; height: 600px;"></div>
+
        
         <h2>MEPs and their Votes</h2>
-            {% for group_name, meps in political_groups.items %}
-            <h3>{{ group_name }}</h3>
+        {% for group_display_name, meps in political_groups.items %}
+            <h3>{{ group_display_name }}</h3>
             <ul>
                 {% for mep in meps %}
                     <li>
-                        <a href = "{% url 'mep_info' mep.mep_id %}"> {{ mep.mep_name }} </a>
+                        <a href="{% url 'mep_info' mep.mep_id %}">{{ mep.mep_name }}</a>
                         (ID: {{ mep.mep_id }}) 
                         - Vote: {{ mep.vote_type }}
                     </li>
                 {% endfor %}
             </ul>
         {% endfor %}
-    
-        
+
     </div>
 
     <script>
@@ -639,9 +635,101 @@
 
     </script>
 
+    <script>
+        // Parse the coalition matrix from Django
+        const coalitionMatrix = {% autoescape off %}{{ coalition_matrix }}{% endautoescape %};
+        const groups_legend = {% autoescape off %}{{ group_legend }}{% endautoescape %};
+        
 
+        // Convert matrix to nodes and links for D3.js
+        const nodes = Object.keys(coalitionMatrix).map(group => ({ id: group }));
+        const links = [];
 
+        for (const [group1, connections] of Object.entries(coalitionMatrix)) {
+            for (const [group2, value] of Object.entries(connections)) {
+                if (value === 1) {
+                    links.push({ source: group1, target: group2 });
+                }
+            }
+        }
 
+        // Identify isolated nodes (nodes without links)
+        const linkedNodes = new Set(links.flatMap(link => [link.source, link.target]));
+        const isolatedNodes = nodes.filter(node => !linkedNodes.has(node.id));
+        const connectedNodes = nodes.filter(node => linkedNodes.has(node.id));
+
+        // Set up SVG canvas
+        const width = 1000;
+        const height = 600;
+
+        const svg = d3.select("#coalition-graph")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Static positions for connected nodes in a circular layout
+        const centerX = width * 0.65;
+        const centerY = height * 0.5;
+        const radius = 180;
+        
+        // Calculate positions for connected nodes in a circle
+        const angleStep = (2 * Math.PI) / connectedNodes.length;
+        connectedNodes.forEach((node, i) => {
+            const angle = i * angleStep;
+            node.x = centerX + radius * Math.cos(angle);
+            node.y = centerY + radius * Math.sin(angle);
+            node.fixed = true;
+        });
+        
+        // Position isolated nodes on the left
+        isolatedNodes.forEach((node, i) => {
+            node.x = width * 0.15;
+            node.y = height * 0.4 + (i * 100);
+            node.fixed = true;
+        });
+
+        // Draw links (edges)
+        const link = svg.selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .style("stroke", "#0000FF")
+            .style("stroke-width", 2);
+
+        // Draw nodes
+        const node = svg.selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("r", 50)
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .style("fill", d => isolatedNodes.includes(d) ? "white" : "#6495ED")
+            .style("stroke", "black")
+            .style("stroke-width", 2);
+
+        // Add labels
+        const label = svg.selectAll("text.label")
+            .data(nodes)
+            .enter().append("text")
+            .attr("class", "label")
+            .attr("x", d => d.x)
+            .attr("y", d => d.y)
+            .attr("text-anchor", "middle")
+            .attr("dy", "0.3em")
+            .style("font-size", "14px")
+            .style("pointer-events", "none")
+            .text(d => {
+                // Wrap text to fit in circle
+                const words = d.id.split(/\s+/);
+                return words.length > 3 ? words.slice(0, 3).join(" ") + "..." : d.id;
+            });
+
+        // Update link positions
+        link
+            .attr("x1", d => d.source.x || nodes.find(n => n.id === d.source).x)
+            .attr("y1", d => d.source.y || nodes.find(n => n.id === d.source).y)
+            .attr("x2", d => d.target.x || nodes.find(n => n.id === d.target).x)
+            .attr("y2", d => d.target.y || nodes.find(n => n.id === d.target).y);
+    </script>
 
 
 </body>

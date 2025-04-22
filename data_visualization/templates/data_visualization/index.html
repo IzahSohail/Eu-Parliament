@@ -1,98 +1,309 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vote Search</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro Votes - Official European Parliament Voting Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'data_visualization/css/style.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid navigation">
-            <a class="navbar-brand" href="{% url 'index' %}">Euro Votes</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">MEPs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                </ul>
+    <!-- Header with EU-styled navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <span class="eu-stars">★★★★★★★★★★★★</span>
+                    <span class="brand-text">Euro Votes</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">MEPs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Political Groups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section with search -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1>European Parliament Voting Data</h1>
+                    <p class="lead">Access, analyze, and explore official voting records of the European Parliament</p>
+                    
+                    <div class="search-container">
+                        <form method="GET" action="{% url 'index' %}" class="search-form">
+                            <div class="input-group">
+                                <input type="text" name="q" class="form-control search-input" placeholder="Search by keywords or vote topics" value="{{ query|default_if_none:'' }}" id="searchInput">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="bi bi-search"></i> Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <div class="landing-container" style="background-image: url('{% static "data_visualization/images/eu_flag.jpg" %}');">
-        <div class="content-wrapper">
-            <!-- Search Section -->
-            <div class="search-section">
-                <h1>Search by Text or Date</h1>
-                <form method="GET" action="{% url 'index' %}">
-                    <div class="search-input-wrapper">
-                        <input type="text" name="q" placeholder="Enter a date or description" value="{{ query }}" id="searchInput">
-                        <!-- Calendar button next to search bar -->
-                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#calendarModal">
-                            <i class="bi bi-calendar"></i> <!-- Calendar icon -->
-                        </button>
-                        <button type="submit" class="btn btn-primary search-button">Search</button>
-                    </div>
-                </form>
-                <!-- Display the number of vote and MEP results found -->
-                {% if vote_results or mep_results %}
-                <p>{{ vote_results|length }} <a href="#vote-results">vote results</a> found and {{ mep_results|length }} <a href="#mep-results">MEP results</a> found</p>
-                {% endif %}
-    
-            </div>
-
-            <!-- Calendar Modal -->
-            <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="calendarModalLabel">Select a Date</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="calendar-section">
-                                <div class="calendar-container">
-                                    <div class="calendar-header">
-                                        <button type="button" id="prevMonth">←</button>
-                                        <select id="yearSelect"></select>
-                                        <select id="monthSelect">
-                                            <option value="0">January</option>
-                                            <option value="1">February</option>
-                                            <option value="2">March</option>
-                                            <option value="3">April</option>
-                                            <option value="4">May</option>
-                                            <option value="5">June</option>
-                                            <option value="6">July</option>
-                                            <option value="7">August</option>
-                                            <option value="8">September</option>
-                                            <option value="9">October</option>
-                                            <option value="10">November</option>
-                                            <option value="11">December</option>
-                                        </select>
-                                        <button type="button" id="nextMonth">→</button>
+    <!-- Main Content Area with Sidebar Layout -->
+    <section class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar with Search Options -->
+                <div class="col-lg-3">
+                    <div class="search-sidebar">
+                        <!-- Committee Search Section -->
+                        <div class="sidebar-card">
+                            <div class="sidebar-card-header">
+                                <h3>Search by Committee</h3>
+                                <button class="btn btn-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#committeeCollapse" aria-expanded="false" aria-controls="committeeCollapse">
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="collapse" id="committeeCollapse">
+                                <div class="sidebar-card-body">
+                                    <div class="committee-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="committeeSearchInput" placeholder="Filter committees..." aria-label="Filter committees">
+                                            <button class="btn btn-outline-secondary" type="button" id="clearCommitteeSearch">
+                                                <i class="bi bi-x-lg"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div id="calendar"></div>
+                                    <div class="committee-list-container">
+                                        <div class="committee-list" id="committeeList">
+                                            {% for committee in committees %}
+                                            <a href="{% url 'index' %}?committee={{ committee|urlencode }}" class="committee-item">
+                                                <i class="bi bi-building"></i>
+                                                <span>{{ committee }}</span>
+                                            </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calendar Section -->
+                        <div class="sidebar-card">
+                            <div class="sidebar-card-header">
+                                <h3>Browse by Date</h3>
+                                <button class="btn btn-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#calendarCollapse" aria-expanded="false" aria-controls="calendarCollapse">
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="collapse" id="calendarCollapse">
+                                <div class="sidebar-card-body">
+                                    <div class="calendar-controls">
+                                        <button type="button" id="prevMonth" class="btn-calendar-nav">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </button>
+                                        <div class="calendar-selects">
+                                            <select id="monthSelect" class="form-select">
+                                                <option value="0">January</option>
+                                                <option value="1">February</option>
+                                                <option value="2">March</option>
+                                                <option value="3">April</option>
+                                                <option value="4">May</option>
+                                                <option value="5">June</option>
+                                                <option value="6">July</option>
+                                                <option value="7">August</option>
+                                                <option value="8">September</option>
+                                                <option value="9">October</option>
+                                                <option value="10">November</option>
+                                                <option value="11">December</option>
+                                            </select>
+                                            <select id="yearSelect" class="form-select"></select>
+                                        </div>
+                                        <button type="button" id="nextMonth" class="btn-calendar-nav">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <div id="calendar" class="calendar-grid"></div>
+                                    
+                                    <div class="calendar-legend">
+                                        <div class="legend-item">
+                                            <span class="legend-color highlight"></span>
+                                            <span class="legend-text">Dates with votes</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color today"></span>
+                                            <span class="legend-text">Today</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Main Content Area -->
+                <div class="col-lg-9">
+                    <!-- Stats Section (if search results exist) -->
+                    {% if vote_results or mep_results or committee or query %}
+                    <div class="results-area">
+                        <div class="results-header">
+                            <h2>Search Results</h2>
+                            {% if committee %}
+                            <p>Showing results for committee: "{{ committee }}"</p>
+                            {% elif query %}
+                            <p>Showing results for "{{ query }}"</p>
+                            {% endif %}
+                        </div>
+                        
+                        {% if vote_results or mep_results %}
+                        <div class="results-summary">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="stat-box">
+                                        <div class="stat-number">{{ vote_results|length }}</div>
+                                        <div class="stat-label">Vote Results</div>
+                                        <a href="#vote-results" class="stat-link">View Results <i class="bi bi-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="stat-box">
+                                        <div class="stat-number">{{ mep_results|length }}</div>
+                                        <div class="stat-label">MEP Results</div>
+                                        <a href="#mep-results" class="stat-link">View Results <i class="bi bi-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vote Results -->
+                        {% if vote_results %}
+                        <div id="vote-results" class="results-section">
+                            <div class="section-header">
+                                <h3>Vote Results</h3>
+                                <p class="section-description">Showing {{ vote_results|length }} vote records</p>
+                            </div>
+                            
+                            <div class="results-container">
+                                {% for vote in vote_results %}
+                                <div class="result-card vote-card">
+                                    <div class="card-header">
+                                        <div class="vote-metadata">
+                                            <span class="vote-id">Vote ID: {{ vote.vote_id }}</span>
+                                            <span class="vote-date">{{ vote.date }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="vote-title">{{ vote.label }}</h4>
+                                        <a href="{% url 'vote_detail' vote_id=vote.vote_id %}" class="btn btn-detail">
+                                            View Details <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- MEP Results -->
+                        {% if mep_results %}
+                        <div id="mep-results" class="results-section">
+                            <div class="section-header">
+                                <h3>MEP Results</h3>
+                                <p class="section-description">Showing {{ mep_results|length }} MEP records</p>
+                            </div>
+                            
+                            <div class="results-container mep-results-grid">
+                                {% for mep in mep_results %}
+                                <div class="result-card mep-card">
+                                    <div class="card-header">
+                                        <h4 class="mep-name">{{ mep.full_name }}</h4>
+                                        <div class="mep-country">
+                                            <i class="bi bi-geo-alt"></i> {{ mep.country_of_representation }}
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="{% url 'mep_info' mep.mep_id %}" class="btn btn-detail">
+                                            View Profile <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% else %}
+                        <!-- No Results Message -->
+                        <div class="no-results-message">
+                            <i class="bi bi-search"></i>
+                            <h3>No results found</h3>
+                            {% if committee %}
+                            <p>We couldn't find any votes for committee "{{ committee }}"</p>
+                            {% else %}
+                            <p>We couldn't find any matches for "{{ query }}"</p>
+                            {% endif %}
+                            <p>Try different keywords or use the calendar to browse by date</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <!-- Welcome Message when no search is performed -->
+                    <div class="welcome-message">
+                        <div class="welcome-icon">
+                            <i class="bi bi-info-circle"></i>
+                        </div>
+                        <h2>Welcome to Euro Votes</h2>
+                        <p>Use the search bar above or the filters on the left to find European Parliament voting data.</p>
+                        <div class="welcome-options">
+                            <div class="welcome-option">
+                                <i class="bi bi-search"></i>
+                                <h4>Search by Keyword</h4>
+                                <p>Enter keywords in the search bar to find specific votes or MEPs</p>
+                            </div>
+                            <div class="welcome-option">
+                                <i class="bi bi-building"></i>
+                                <h4>Browse by Committee</h4>
+                                <p>Select a committee from the sidebar to view related votes</p>
+                            </div>
+                            <div class="welcome-option">
+                                <i class="bi bi-calendar-date"></i>
+                                <h4>Browse by Date</h4>
+                                <p>Use the calendar to find votes from specific dates</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Calendar JavaScript
         const calendar = document.getElementById('calendar');
         const yearSelect = document.getElementById('yearSelect');
         const monthSelect = document.getElementById('monthSelect');
@@ -105,39 +316,89 @@
 
         const votesByDate = JSON.parse('{{ votes_by_date|escapejs }}');
 
+        // Initialize collapse states
+        document.addEventListener('DOMContentLoaded', function() {
+            // Open committee collapse if committee parameter is present
+            {% if committee %}
+            new bootstrap.Collapse(document.getElementById('committeeCollapse'), {
+                toggle: true
+            });
+            {% endif %}
+            
+            // Open calendar collapse if date parameter is present
+            {% if query and query|slice:":4" == "2023" or query|slice:":4" == "2022" or query|slice:":4" == "2024" %}
+            new bootstrap.Collapse(document.getElementById('calendarCollapse'), {
+                toggle: true
+            });
+            {% endif %}
+        });
+
         function generateCalendar(year, month) {
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             const firstDay = new Date(year, month, 1).getDay();
-            let table = '<table><tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr><tr>';
-            for (let i = 0; i < firstDay; i++) {
-                table += '<td></td>';
+            let calendarHtml = '<table class="calendar-table"><thead><tr>';
+            
+            // Day headers
+            const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            dayNames.forEach(day => {
+                calendarHtml += `<th>${day}</th>`;
+            });
+            
+            calendarHtml += '</tr></thead><tbody><tr>';
+            
+            // Adjust for Monday as first day of week (European standard)
+            const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
+            
+            // Empty cells for days before the first day of the month
+            for (let i = 0; i < adjustedFirstDay; i++) {
+                calendarHtml += '<td class="empty-day"></td>';
             }
+            
+            // Days of the month
+            let dayOfWeek = adjustedFirstDay;
             for (let day = 1; day <= daysInMonth; day++) {
                 const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                const highlightClass = votesByDate[dateStr] ? 'highlight' : '';
-                if ((firstDay + day - 1) % 7 === 0) {
-                    table += '</tr><tr>';
+                const today = new Date();
+                const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
+                const hasVotes = votesByDate[dateStr];
+                
+                let classNames = [];
+                if (hasVotes) classNames.push('highlight');
+                if (isToday) classNames.push('today');
+                
+                const classAttr = classNames.length ? ` class="${classNames.join(' ')}"` : '';
+                
+                if (dayOfWeek === 0) {
+                    calendarHtml += '</tr><tr>';
                 }
-                table += `<td class="${highlightClass}" onclick="submitDate('${dateStr}')">${day}</td>`;
+                
+                calendarHtml += `<td${classAttr} onclick="submitDate('${dateStr}')">
+                    <span class="calendar-day">${day}</span>
+                    ${hasVotes ? '<span class="vote-indicator"></span>' : ''}
+                </td>`;
+                
+                dayOfWeek = (dayOfWeek + 1) % 7;
             }
-            table += '</tr></table>';
-            calendar.innerHTML = table;
+            
+            // Fill in any remaining cells
+            while (dayOfWeek > 0 && dayOfWeek < 7) {
+                calendarHtml += '<td class="empty-day"></td>';
+                dayOfWeek++;
+            }
+            
+            calendarHtml += '</tr></tbody></table>';
+            calendar.innerHTML = calendarHtml;
         }
 
         function submitDate(date) {
             searchInput.value = date;
-            const calendarModalEl = document.getElementById('calendarModal');
-            const calendarModal = bootstrap.Modal.getInstance(calendarModalEl);
-            if (calendarModal) {
-                calendarModal.hide();  // Hide the modal after selecting the date
-            }
-            searchInput.form.submit();  // Automatically submit the form to show results
+            searchInput.form.submit();
         }
 
         function populateYearSelect() {
-            const startYear = currentYear - 20;
-            const endYear = currentYear + 10;
-            for (let year = startYear; year <= endYear; year++) {
+            const minYear = {{ min_year }};
+            const maxYear = {{ max_year }};
+            for (let year = minYear; year <= maxYear; year++) {
                 const option = document.createElement('option');
                 option.value = year;
                 option.text = year;
@@ -149,9 +410,9 @@
         }
 
         function updateCalendar() {
-            const selectedYear = parseInt(yearSelect.value);
-            const selectedMonth = parseInt(monthSelect.value);
-            generateCalendar(selectedYear, selectedMonth);
+            currentYear = parseInt(yearSelect.value);
+            currentMonth = parseInt(monthSelect.value);
+            generateCalendar(currentYear, currentMonth);
         }
 
         prevMonthButton.addEventListener('click', () => {
@@ -163,7 +424,7 @@
             }
             yearSelect.value = currentYear;
             monthSelect.value = currentMonth;
-            updateCalendar();
+            generateCalendar(currentYear, currentMonth);
         });
 
         nextMonthButton.addEventListener('click', () => {
@@ -175,61 +436,59 @@
             }
             yearSelect.value = currentYear;
             monthSelect.value = currentMonth;
-            updateCalendar();
+            generateCalendar(currentYear, currentMonth);
         });
 
         yearSelect.addEventListener('change', updateCalendar);
         monthSelect.addEventListener('change', updateCalendar);
 
+        // Initialize the calendar
         populateYearSelect();
         monthSelect.value = currentMonth;
         generateCalendar(currentYear, currentMonth);
-    </script>
-
-    {% if vote_results or mep_results %}
-    <div class="search-results">
         
-        <div id="vote-results">
-            {% if vote_results %}
-            <h3>Vote Results:</h3>
-            <ul>
-                {% for vote in vote_results %}
-                <li class="vote-item">
-                    <div class="vote-header">
-                        <span class="vote-id">Vote {{ vote.vote_id }}</span> &gt; <span class="vote-date">{{ vote.date }}</span>
-                    </div>
-                    <div class="vote-body">
-                        <div class="vote-title">
-                            <strong>{{ vote.label }}</strong>
-                        </div>
-                        <a href="{% url 'vote_detail' vote_id=vote.vote_id %}" class="vote-detail-link">View Details</a>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-    
-        <div id="mep-results">
-            {% if mep_results %}
-            <h3>MEP Results:</h3>
-            <ul>
-                {% for mep in mep_results %}
-                <li class="mep-item">
-                    <div class="mep-header">
-                        <span class="mep-name">{{ mep.full_name }}</span> &gt; <span class="mep-country">{{ mep.country_of_representation }}</span>
-                    </div>
-                    <a href="{% url 'mep_info' mep.mep_id %}" class="mep-detail-link">View MEP Info</a>
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-    </div>
-    {% elif query %}
-    <p>No results found for "{{ query }}".</p>
-    {% endif %}
+        // Add smooth scrolling to anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        // Committee search functionality
+        const committeeSearchInput = document.getElementById('committeeSearchInput');
+        const committeeList = document.getElementById('committeeList');
+        const clearCommitteeSearchBtn = document.getElementById('clearCommitteeSearch');
+        
+        committeeSearchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const committeeItems = committeeList.querySelectorAll('.committee-item');
+            
+            committeeItems.forEach(item => {
+                const committeeText = item.querySelector('span').textContent.toLowerCase();
+                if (committeeText.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        clearCommitteeSearchBtn.addEventListener('click', function() {
+            committeeSearchInput.value = '';
+            const committeeItems = committeeList.querySelectorAll('.committee-item');
+            committeeItems.forEach(item => {
+                item.style.display = 'flex';
+            });
+        });
+    </script>
 </body>
 </html>
+

@@ -39,9 +39,11 @@ class VoteMapping(models.Model):
 
 class PoliticalGroup(models.Model):
     group = models.CharField(primary_key=True, max_length=89)
+    shortform = models.CharField(max_length=20, blank=True, null=True)  # New field
 
     def __str__(self):
         return self.group
+
 
 
 class Membership(models.Model):

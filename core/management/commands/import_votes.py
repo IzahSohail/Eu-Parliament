@@ -126,7 +126,7 @@ class Command(BaseCommand):
         file_path = 'votes/vote_info.xls'
         sheets = ['EP1', 'EP2', 'EP3', 'EP4', 'EP5']
         vote_infos = []
-        vote_no_offsets = [0, 0, 886, 3021, 5754, 9494, 15239, 21439, 28402]
+        vote_no_offsets = [0, 0, 886, 3021, 5754, 9494, 15239, 21439, 28402, 38678]
 
         issue_columns = [
             'Issue-Economic=1, Other=0', 
