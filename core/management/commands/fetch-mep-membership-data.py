@@ -1,93 +1,115 @@
-from django.core.management.base import BaseCommand
-from bs4 import BeautifulSoup
+import datetime
 import requests
 import csv
-import datetime
+from bs4 import BeautifulSoup
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from django.core.management.base import BaseCommand
+from core.models import MEP  # Make sure this model is correct
 
 class Command(BaseCommand):
-    help = 'Fetches MEP political group data and stores it into a CSV file (only for MEPs in new_meps.csv)'
+    help = 'Fetch full membership history (all start and end dates) for all MEPs'
 
     def handle(self, *args, **options):
         start_time = datetime.datetime.now()
-
-        # Step 1: Read MEP IDs from new_meps.csv
-        mep_ids = []
-        with open('new_meps.csv', newline='') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                mep_ids.append(row['mep_id'])
-
-        print(f"Total MEPs to process: {len(mep_ids)}")
 
         parsed_data = []
         page_with_these_mep_ids_DNE = []
         issue_with_the_page = []
 
-        for idx, mep_id in enumerate(mep_ids, 1):
-            print(f"[{idx}/{len(mep_ids)}] Fetching data for MEP ID: {mep_id}")
+        mep_ids = list(MEP.objects.values_list('mep_id', flat=True))
+        print(f"Found {len(mep_ids)} MEPs to scrape.\n")
 
-            previous_mep_id, previous_end_date, previous_political_group = "", "", ""
+        def fetch_mep_memberships(mep_id):
+            temp_data = []
+            today = datetime.date.today()
+            ep10_start = datetime.date(2024, 7, 16)
 
             try:
-                source = requests.get(f'https://www.europarl.europa.eu/meps/en/{mep_id}/ANYTHING_GOES/home').text
+                source = requests.get(f'https://www.europarl.europa.eu/meps/en/{mep_id}/ANYTHING_GOES/home', timeout=10).text
                 soup = BeautifulSoup(source, 'lxml')
-                mep_home_page = soup.find('div', class_='erpl_accordion').find_all('ul')[-1].find_all('span')
-            except:
-                print(f"    [!] MEP ID {mep_id} has no home page.")
+                accordion = soup.find('div', class_='erpl_accordion')
+
+                if accordion:
+                    mep_home_page = accordion.find_all('ul')[-1].find_all('span')
+                    parliamentary_terms = [term.text[0] for term in mep_home_page]
+                else:
+                    parliamentary_terms = []
+
+                # Add EP10 manually if we're past July 16, 2024
+                if today >= ep10_start and '10' not in parliamentary_terms:
+                    parliamentary_terms.append('10')
+
+            except Exception as e:
+                print(f"[!] Failed to fetch homepage for MEP {mep_id}: {e}")
                 page_with_these_mep_ids_DNE.append(mep_id)
-                continue
+                return temp_data
 
-            try:
-                parliamentary_terms = [term.text[0] for term in mep_home_page]
-
-                for parliamentary_term in parliamentary_terms[::-1]:
-                    term_url = f'https://www.europarl.europa.eu/meps/en/{mep_id}/ANYTHING_GOES/history/{parliamentary_term}#detailedcardmep'
-                    source = requests.get(term_url).text
+            for parliamentary_term in parliamentary_terms[::-1]:
+                try:
+                    url = f'https://www.europarl.europa.eu/meps/en/{mep_id}/ANYTHING_GOES/history/{parliamentary_term}#detailedcardmep'
+                    source = requests.get(url, timeout=10).text
                     soup = BeautifulSoup(source, 'lxml')
                     political_groups = soup.find('div', class_='erpl_meps-status')
 
+                    if not political_groups:
+                        print(f"[!] No political group found for MEP {mep_id} in EP{parliamentary_term}")
+                        continue
+
                     for membership in political_groups.find_all('li'):
-                        if ' / ' in membership.text:
-                            start_date = membership.text.split('/')[0].strip()
-                            end_date = membership.text.split('/')[1].split(':')[0].strip()
+                        text = membership.text.strip()
+
+                        if ' / ' in text:
+                            start_date = text.split('/')[0].strip()
+                            end_date = text.split('/')[1].split(':')[0].strip()
                         else:
-                            start_date = membership.text.split('...')[0].strip()
+                            start_date = text.split('...')[0].strip()
                             end_date = None
 
-                        political_group = membership.text.split(':')[1].split(' - ')[0].strip()
+                        try:
+                            political_group = text.split(':')[1].split(' - ')[0].strip()
+                        except IndexError:
+                            print(f"[!] Could not parse political group for MEP {mep_id}: {text}")
+                            continue
 
-                        if (
-                            political_group == previous_political_group and
-                            mep_id == previous_mep_id and
-                            previous_end_date and
-                            datetime.datetime.strptime(start_date, "%d-%m-%Y") == datetime.datetime.strptime(previous_end_date, "%d-%m-%Y") + datetime.timedelta(days=1)
-                        ):
-                            parsed_data[-1]["end_date"] = end_date
-                        else:
-                            parsed_data.append({
-                                'mep_id': mep_id,
-                                'start_date': start_date,
-                                'end_date': end_date,
-                                'political_group': political_group
-                            })
+                        temp_data.append({
+                            'mep_id': mep_id,
+                            'parliamentary_term': parliamentary_term,
+                            'start_date': start_date,
+                            'end_date': end_date,
+                            'political_group': political_group
+                        })
 
-                        previous_mep_id, previous_end_date, previous_political_group = mep_id, end_date, political_group
+                except Exception as e:
+                    print(f"[!] Error parsing memberships for MEP {mep_id} in EP{parliamentary_term}: {e}")
+                    issue_with_the_page.append(mep_id)
 
-            except Exception as e:
-                print(f"    [!] Issue fetching/parsing data for MEP ID {mep_id}: {e}")
-                issue_with_the_page.append(mep_id)
-                continue
+            return temp_data
 
-        # Save results to CSV
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            futures = {executor.submit(fetch_mep_memberships, mep_id): mep_id for mep_id in mep_ids}
+            for i, future in enumerate(as_completed(futures), 1):
+                mep_id = futures[future]
+                try:
+                    memberships = future.result()
+                    parsed_data.extend(memberships)
+                    if i % 50 == 0 or i == len(mep_ids):
+                        print(f"✅ Processed {i}/{len(mep_ids)} MEPs...")
+                except Exception as e:
+                    print(f"[!] Exception for MEP {mep_id}: {e}")
+
+        # Write to CSV
         with open('all_meps_membership_data.csv', 'w', newline='') as csvfile:
-            fieldnames = ['mep_id', 'start_date', 'end_date', 'political_group']
+            fieldnames = ['mep_id', 'parliamentary_term', 'start_date', 'end_date', 'political_group']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
             writer.writeheader()
-            writer.writerows(parsed_data)
+            for record in parsed_data:
+                writer.writerow(record)
 
         end_time = datetime.datetime.now()
+        print("\n=== DONE ===")
         print(f"Start time: {start_time}")
         print(f"End time: {end_time}")
-        print(f"Total successful: {len(parsed_data)} entries")
-        print(f"Missing home pages: {len(page_with_these_mep_ids_DNE)}")
-        print(f"Issues with data: {len(issue_with_the_page)}")
+        print(f"Total membership records saved: {len(parsed_data)}")
+        print(f"Pages that did not exist: {len(page_with_these_mep_ids_DNE)}")
+        print(f"Pages with parsing issues: {len(issue_with_the_page)}")

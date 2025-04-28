@@ -1,43 +1,84 @@
 mep_id,first_name,last_name,gender,date_of_birth,date_of_death,hometown,country_of_representation
+28150,Kinga,Gál,FEMALE,,,Kolozsvár,HUN
+4746,Sergio,Berlato,MALE,1959-07-27,,MARANO VICENTINO,ITA
 257258,Ivaylo,Valchev,MALE,,,,BGR
 257083,João,Oliveira,MALE,1979-07-09,,Évora,PRT
 257092,Hanna,Gedin,FEMALE,1978-03-11,,,SWE
+197545,Bogdan,Rzońca,MALE,1961-02-01,,Zarzecze,POL
+197802,Ville,Niinistö,MALE,1976-07-30,,Turku,FIN
+197464,Hannah,Neumann,FEMALE,1984-04-03,,Speyer,DEU
+233862,Matjaž,Nemec,MALE,1980-04-10,,Šempeter pri Gorici,SVN
+30482,Younous,Omarjee,MALE,1969-09-30,,Saint-Denis (Réunion),FRA
 257102,Giorgio,Gori,MALE,1960-03-24,,Bergamo,ITA
+103246,Auke,Zijlstra,MALE,1964-11-01,,Haskerland,NLD
 257005,Ľuboš,Blaha,MALE,1979-12-07,,Bratislava,SVK
 257135,Valentina,Palmisano,FEMALE,1983-01-24,,Brindisi,ITA
 257119,Şerban Dimitrie,Sturdza,MALE,1967-03-30,,Bucarest,ROU
+236050,Marie,Dauchy,FEMALE,1987-02-05,,Calais,FRA
 256919,Christophe,Gomart,MALE,1960-06-20,,Saumur,FRA
+197591,Irene,Tinagli,FEMALE,1974-04-16,,Empoli,ITA
+96812,Juan Fernando,López Aguilar,MALE,1961-06-10,,Las Palmas,ESP
+197701,Konstantinos,Arvanitis,MALE,1964-06-09,,Athens,GRC
 256957,Mary,Khan,FEMALE,1994-06-25,,Frankfurt am Main,DEU
 256884,Kris,Van Dijck,MALE,1963-10-02,,Turnhout,BEL
+96752,Martin,Häusling,MALE,1961-03-26,,Bad Wildungen,DEU
 257061,Ana,Vasconcelos,FEMALE,1985-03-14,,"Terceira, Açores",PRT
 257297,Barry,Cowen,MALE,1967-08-28,,Dublin,IRL
 220897,Petra,Steger,FEMALE,1987-10-04,,Vienna,AUT
 256980,Alexandra,Mehnert,FEMALE,1974-08-06,,Magdeburg,DEU
 261797,Christophe,Bay,MALE,1962-09-06,,Vincennes,FRA
+197863,Maria,Walsh,FEMALE,1987-06-11,,Boston,IRL
+28617,Inese,Vaidere,FEMALE,1952-09-03,,Jelgava,LVA
+118949,Ondřej,Kovařík,MALE,1980-08-21,,KYJOV,CZE
+197662,Vangelis,Meimarakis,MALE,1953-12-14,,ATHINA,GRC
+229839,René,Repasi,MALE,1979-11-08,,Karlsruhe,DEU
 256970,Raquel,García Hermida-Van Der Walle,FEMALE,1983-05-28,,Madrid,NLD
+204346,Dominik,Tarczyński,MALE,,,Lublin,POL
+204333,Salvatore,De Meo,MALE,1971-10-27,,Fondi,ITA
+96756,Sabine,Verheyen,FEMALE,1964-10-24,,Aachen,DEU
 257130,Cristina,Guarda,FEMALE,1990-03-03,,Cologna Veneta,ITA
+197699,Elena,Kountoura,FEMALE,,,Athens,GRC
+245018,Christophe,Clergeau,MALE,1968-09-01,,Nantes,FRA
 257149,Lara,Magoni,FEMALE,1969-01-29,,Alzano Lombardo (BG),ITA
 256823,Nikolas,Farantouris,MALE,,,,GRC
 257075,Isilda,Gomes,FEMALE,1951-09-16,,Mido,PRT
+96761,Axel,Voss,MALE,1963-04-07,,Hameln,DEU
 257038,Sigrid,Friis,FEMALE,1994-10-20,,Hillerød,DNK
 256949,Siegbert Frank,Droese,MALE,1969-06-07,,Leipzig,DEU
 257138,Giuseppe,Antoci,MALE,1968-01-11,,Santo Stefano di Camastra,ITA
 256889,Liesbet,Sommen,FEMALE,,,Turnhout,BEL
 257101,Cecilia,Strada,FEMALE,1979-03-12,,Milan,ITA
 257095,Elena,Donazzan,FEMALE,1972-06-22,,Bassano del Grappa ,ITA
+197461,Katrin,Langensiepen,FEMALE,1979-10-10,,Langenhagen,DEU
+96780,Monika,Hohlmeier,FEMALE,1962-07-02,,München,DEU
+197636,Ioan-Rareş,Bogdan,MALE,1974-09-17,,Ocna Mures,ROU
 256829,Sakis,Arnaoutoglou,MALE,,,,GRC
 256868,Péter,Magyar,MALE,1981-03-16,,Budapest,HUN
+190713,Lukas,Mandl,MALE,1979-07-12,,Wien,AUT
 127766,Jussi,Saramo,MALE,,,Porvoo,FIN
+208722,Sara,Matthieu,FEMALE,1981-05-21,,Aalst,BEL
+197398,Pär,Holmgren,MALE,1964-10-24,,Gävle,SWE
 256966,Michael,von der Schulenburg,MALE,1948-10-16,,Munich,DEU
 257148,Raffaele,Topo,MALE,1965-03-02,,Villaricca,ITA
+124893,Bogdan Andrzej,Zdrojewski,MALE,1957-05-18,,Kłodzko,POL
 256906,Claire,Fita,FEMALE,1976-12-31,,Toulouse,FRA
+191693,Elsi,Katainen,FEMALE,1966-12-17,,Haapajärvi,FIN
+197401,Karin,Karlsbro,FEMALE,1970-09-23,,Roslags-Bro,SWE
+197558,Asger,Christensen,MALE,1958-01-08,,Tarm,DNK
 257123,Lucia,Annunziata,FEMALE,1950-08-08,,Sarno,ITA
+197543,Bernard,Guetta,MALE,1951-01-28,,Boulogne-Billancourt,FRA
 256859,Annamária,Vicsek,FEMALE,1973-02-09,,Szabadka,HUN
+106936,Daniel,Freund,MALE,1984-10-14,,Aachen,DEU
 260035,Marko,Vešligaj,MALE,,,,HRV
+88882,Victor,Negrescu,MALE,,,București,ROU
 198076,Maria,Ohisalo,FEMALE,,,Helsinki,FIN
+197572,Anna,Zalewska,FEMALE,,,Świebodzice,POL
+112747,Romana,Jerković,FEMALE,1964-11-28,,Split,HRV
 257077,Marlena,Maląg,FEMALE,,,Ostrów Wielkopolski,POL
+218347,Thijs,Reuten,MALE,,,Bussum,NLD
 256962,Joachim,Streit,MALE,,,,DEU
 257033,Niels Flemming,Hansen,MALE,1974-05-16,,Vejle,DNK
+197721,César,Luena,MALE,,,Logrono,ESP
 257063,Catarina,Martins,FEMALE,1973-09-07,,Porto,PRT
 257018,Branislav,Ondruš,MALE,1973-03-28,,Levoča,SVK
 257160,Marco,Tarquinio,MALE,1958-03-16,,FOLIGNO,ITA
@@ -49,23 +90,50 @@ mep_id,first_name,last_name,gender,date_of_birth,date_of_death,hometown,country_
 256978,Reinier,Van Lanschot,MALE,1989-09-07,,Saint-Germain-en-Laye,NLD
 261796,Séverine,Werbrouck,FEMALE,1978-10-31,,Pau,FRA
 256875,Matthieu,Valet,MALE,1986-01-04,,Lille,FRA
+128483,Markus,Buchheit,MALE,,,Zweibrücken,DEU
+197435,Gabriele,Bischoff,FEMALE,1961-01-04,,Bad Wildungen,DEU
+247735,Laura,Ballarín Cereza,FEMALE,,,Barcelona,ESP
 257090,Beatrice,Timgren,FEMALE,1989-05-12,,Järfälla,SWE
+197820,Nicola,Procaccini,MALE,1976-01-21,,Roma,ITA
+40224,Andi,Cristea,MALE,,,Buzău,ROU
+197687,Philippe,Olivier,MALE,1961-08-30,,Juvisy sur Orge,FRA
 256991,Sebastiaan,Stöteler,MALE,,,Almelo,NLD
+125027,Esteban,González Pons,MALE,1964-08-21,,Valencia,ESP
 110673,Ana Miguel,Pedro,FEMALE,1989-10-07,,Oliveira De Azemeis,PRT
 256915,Mélissa,Camara,FEMALE,1991-11-27,,Mont-Saint-Aignan,FRA
 257103,Ştefan,Muşoiu,MALE,1975-06-16,,București,ROU
+124785,Maria,Grapini,FEMALE,1954-11-07,,Berești - Galați,ROU
 256903,Thomas,Pellerin-Carlin,MALE,,,Caen,FRA
+124877,Jadwiga,Wiśniewska,FEMALE,,,Myszków,POL
+129073,Urmas,Paet,MALE,1974-04-20,,Tallinn,EST
 257049,Mirosława,Nykiel,FEMALE,,,,POL
+197655,Cristian,Terheş,MALE,,,Zalau,ROU
+197439,Damian,Boeselager,MALE,1988-03-08,,Frankfurt am Main,DEU
+197840,Rasa,Juknevičienė,FEMALE,1958-01-26,,Panevėžys,LTU
+124828,Fulvio,Martusciello,MALE,1968-05-25,,Napoli,ITA
 257070,Marcin,Sypniewski,MALE,1979-01-30,,Bydgoszcz,POL
+1294,Elio,Di Rupo,MALE,,,Morlanwelz,BEL
+202073,Marc,Angel,MALE,1963-03-12,,Luxembourg-Ville,LUX
 257001,Elena,Sancho Murillo,FEMALE,1989-01-26,,Ribaforada,ESP
+197402,Tomas,Tobé,MALE,1978-02-16,,Gavle,SWE
+237465,Matthias,Ecke,MALE,1983-04-12,,Meerane,DEU
+197460,Sergey,Lagodinsky,MALE,1975-12-01,,Astrakhan,DEU
+197552,Veronika,Vrecionová,FEMALE,1965-09-08,,České Budějovice,CZE
+197624,Ivars,Ijabs,MALE,1972-11-17,,Riga,LVA
 256999,Rosa,Serrano Sierra,FEMALE,,,,ESP
 257068,Hélder,Sousa Silva,MALE,1965-07-21,,Mafra,PRT
+124836,Maria,Noichl,FEMALE,1967-01-09,,Rosenheim,DEU
 257026,Michał,Szczerba,MALE,1977-12-14,,Warszawa,POL
 257114,Claudiu-Richard,Târziu,MALE,1973-02-20,,Bacău,ROU
+197514,Andrzej,Halicki,MALE,1961-11-26,,Warszawa,POL
 257025,Kristoffer,Storm,MALE,1989-01-26,,Hillerød,DNK
+197679,Isabel,Benjumea Benjumea,FEMALE,1982-09-05,,Madrid,ESP
 256987,Oihane,Agirregoitia Martínez,FEMALE,1980-04-18,,Bilbao,ESP
 256831,Sophia,Kircher,FEMALE,1994-05-04,,,AUT
 257067,Grzegorz,Braun,MALE,1967-03-11,,Toruń,POL
+125068,Emmanouil,Kefalogiannis,MALE,,,Iraklio Kritis,GRC
+124861,Caterina,Chinnici,FEMALE,1954-11-05,,Palermo,ITA
+197780,Bart,Groothuis,MALE,1981-01-01,,Tubbergen,NLD
 256908,François,Kalfon,MALE,1968-06-11,,Sarcelles,FRA
 257163,Francesco,Torselli,MALE,1976-03-09,,FIRENZE,ITA
 125325,Sander,Smit,MALE,1985-07-29,,Goor,NLD
@@ -75,85 +143,177 @@ mep_id,first_name,last_name,gender,date_of_birth,date_of_death,hometown,country_
 257000,Stephen Nikola,Bartulica,MALE,,,,HRV
 256942,Marc,Jongen,MALE,1968-05-23,,Merano,DEU
 257089,Alice,Teodorescu Måwe,FEMALE,1984-05-02,,Bucharest,SWE
+96833,Jens,Geier,MALE,1961-06-22,,Frankfurt,DEU
+236053,Marina,Mesure,FEMALE,1989-07-12,,Marseille,FRA
 256918,Céline,Imart,FEMALE,,,,FRA
+38511,Georg,Mayer,MALE,,,Feldbach,AUT
+197784,Susana,Solís Pérez,FEMALE,,,Aviles,ESP
+28347,Javier,Moreno Sánchez,MALE,1965-03-12,,Ginebra (Suiza),ESP
 257105,Roxana,Mînzatu,FEMALE,1980-04-01,,Brasov,ROU
+197425,Ralf,Seekatz,MALE,,,DERNBACH,DEU
 257057,João,Cotrim De Figueiredo,MALE,1961-06-24,,Lisbon,PRT
 257139,Benedetta,Scuderi,FEMALE,1991-09-08,,Agropoli,ITA
+204332,Barry,Andrews,MALE,1967-05-16,,Dublin,IRL
 257255,Stanislav,Stoyanov,MALE,,,,BGR
 98219,Aura,Salla,FEMALE,,,Lappeenranta,FIN
+197549,Markéta,Gregorová,FEMALE,1993-01-14,,Most,CZE
 257059,Bruno,Gonçalves,MALE,1996-12-27,,,PRT
 99878,Waldemar,Buda,MALE,,,,POL
+197773,Bert-Jan,Ruissen,MALE,1972-03-22,,Reimerswaal,NLD
 256907,Reinis,Pozņaks,MALE,1977-12-09,,Riga,LVA
+197621,Juan Ignacio,Zoido Álvarez,MALE,1957-01-21,,Montellano - Sevilla,ESP
 204129,Nikolina,Brnjac,FEMALE,1978-07-11,,Karlovac,HRV
+202036,Sunčana,Glavak,FEMALE,1968-12-09,,Čakovec,HRV
+197475,Christine,Anderson,FEMALE,,,Eschwege,DEU
 201945,Virginijus,Sinkevičius,MALE,1990-11-04,,Vilnius,LTU
 257053,Ana Catarina,Mendes,FEMALE,1973-01-14,,Coimbra,PRT
+124700,Jana,Toom,FEMALE,1966-10-15,,Tallinn,EST
+197800,Eero,Heinäluoma,MALE,1955-07-04,,Kokkola,FIN
 257042,Marcin,Kierwiński,MALE,1976-08-22,,Warszawa,POL
 256852,Nikola,Bartůšek,FEMALE,1985-05-11,,České Budějovice,CZE
 257050,António,Tânger Corrêa,MALE,1952-04-24,,Lisbon,PRT
+198183,Mihai,Tudose,MALE,1967-03-06,,Braila,ROU
+197618,Elisabetta,Gualmini,FEMALE,,,Modena,ITA
+197795,Mario,Furore,MALE,1988-12-25,,FOGGIA,ITA
 257081,Sebastião,Bugalho,MALE,,,,PRT
+197410,Stefan,Berger,MALE,1969-09-15,,Mönchengladbach,DEU
 256920,Isabelle,Le Callennec,FEMALE,1966-10-14,,Nantes,FRA
 257054,Tiago,Moreira de Sá,MALE,1971-01-12,,Lisbon,PRT
 257076,Michał,Dworczyk,MALE,1975-07-22,,Warsaw,POL
+124808,Norbert,Lins,MALE,1977-12-22,,Ravensburg,DEU
+197843,Andrius,Kubilius,MALE,1956-12-08,,Lietuva,LTU
 257133,Pasquale,Tridico,MALE,1975-09-21,,Scala Coeli,ITA
+185771,Tom,Vandendriessche,MALE,1978-10-27,,Leuven,BEL
+96653,Katarína,Roth Neveďalová,FEMALE,1982-11-10,,Nitra,SVK
+96998,Evelyn,Regner,FEMALE,1966-01-24,,Wien,AUT
+197670,Andreas,Schieder,MALE,1969-04-16,,Wien,AUT
 198373,Judita,Laššáková,FEMALE,1977-12-04,,Bratislava,SVK
+197580,Isabella,Tovaglieri,FEMALE,1987-06-25,,Busto Arsizio,ITA
+197647,Dan-Ştefan,Motreanu,MALE,1970-09-11,,Orastie,ROU
+197786,Susanna,Ceccardi,FEMALE,1987-03-19,,Pisa,ITA
 256989,Fidias,Panayiotou,MALE,,,,CYP
 257071,Carla,Tavares,FEMALE,1970-08-15,,,PRT
 257112,Vlad,Vasile-Voiculescu,MALE,,,,ROU
 257132,Ignazio Roberto,Marino,MALE,1955-03-10,,Genova,ITA
 257129,Mimmo,Lucano,MALE,1954-05-31,,Melito Porto Salvo,ITA
+96934,Sandra,Kalniete,FEMALE,1952-12-22,,Tomskas apg. Kolpaševas raj. Toguras ciems,LVA
+197579,Klára,Dobrev,FEMALE,1972-02-02,,Sofia,HUN
+197711,Dolors,Montserrat,FEMALE,1973-09-18,,Barcelona,ESP
 198073,Anna-Maja,Henriksson,FEMALE,1964-01-07,,Jakobstad,FIN
+204449,Riho,Terras,MALE,1967-04-17,,Kohtla-Järve,EST
+22418,Esther,Herranz García,FEMALE,1969-07-03,,Logroño,ESP
+197738,Lídia,Pereira,FEMALE,1991-07-26,,Se Nova,PRT
 256878,Marie-Luce,Brasier-Clain,FEMALE,1959-10-19,,,FRA
 256897,Gaëtan,Dussausaye,MALE,1994-04-05,,BRÉTIGNY-SUR-ORGE,FRA
 256917,Majdouline,Sbai,FEMALE,,,,FRA
 256899,Murielle,Laurent,FEMALE,1977-09-21,,Joigny,FRA
+28298,Iratxe,García Pérez,FEMALE,1974-10-07,,Baracaldo,ESP
 257093,Carlo,Ciccioli,MALE,1952-11-19,,Ancona,ITA
+124722,Csaba,Molnár,MALE,1975-12-04,,Csorna,HUN
 257296,Nina,Carberry,FEMALE,1984-07-21,,Dublin,IRL
 256955,Maria,Zacharia,FEMALE,,,Athens,GRC
 256845,Ondřej,Krutílek,MALE,1981-04-30,,Nový Jičín,CZE
 257087,Adnan,Dibrani,MALE,,,,SWE
 256853,Klara,Dostalova,FEMALE,1971-03-13,,Prague,CZE
+197870,Kim,Van Sparrentak,FEMALE,1989-10-16,,Vlissingen,NLD
+239260,Denis,Nesci,MALE,1981-07-25,,Polistena,ITA
 256971,Lukas,Sieper,MALE,1997-03-22,,Bergisch Gladbach,DEU
+197416,Giorgos,Georgiou,MALE,1963-04-09,,Nicosia,CYP
+96810,Carlo,Fidanza,MALE,1976-09-21,,San Benedetto del Tronto,ITA
+125093,Kostas,Papadakis,MALE,1975-04-18,,Athina,GRC
+213330,Ernő,Schaller-Baross,MALE,,,Budapest,HUN
 97399,Dirk,Gotink,MALE,1981-08-13,,Haarlem,NLD
+197628,Jean-Paul,Garraud,MALE,,,Toulouse,FRA
+197831,Hermann,Tertsch,MALE,1958-04-09,,Madrid,ESP
+23781,Janusz,Lewandowski,MALE,1951-06-13,,Lublin,POL
+124784,Dan,Nica,MALE,1960-07-02,,Panciu,ROU
 119652,Vytenis Povilas,Andriukaitis,MALE,1951-08-09,,,LTU
+96811,Rosa,Estaràs Ferragut,FEMALE,1965-10-21,,Valldemossa,ESP
+197403,Alex,Agius Saliba,MALE,1988-01-31,,Pieta,MLT
 257019,Alvise,Pérez,MALE,1990-02-26,,Sevilla,ESP
+101585,Niels,Fuglsang,MALE,1985-06-29,,Kobenhavn,DNK
+197430,Engin,Eroglu,MALE,,,Schwalmstadt,DEU
 256996,Sebastian,Kruis,MALE,1989-08-04,,Medellín,NLD
 256866,Gabriella,Gerzsenyi,FEMALE,,,,HUN
+1917,Markus,Ferber,MALE,1965-01-15,,Augsburg,DEU
 257121,Matteo,Ricci,MALE,1974-07-18,,Pesaro,ITA
 256981,Ton,Diepeveen,MALE,1957-08-27,,Veenendaal,NLD
 257109,Marco,Squarta,MALE,1979-06-04,,Perugia,ITA
 257020,Stine,Bosse,FEMALE,1960-12-21,,Lyngby,DNK
+96675,Isabella,Lövin,FEMALE,1963-02-03,,Helsingborg,SWE
+204419,Sandro,Gozi,MALE,1968-03-25,,Sogliano al Rubicone,ITA
 220840,Jaroslav,Bžoch,MALE,1983-11-30,,,CZE
 256815,Marjan,Šarec,MALE,1977-12-02,,Ljubljana,SVN
 256886,Valérie,Deloge,FEMALE,1966-05-09,,Fontenay-aux-Roses,FRA
 257045,Michał,Wawrykiewicz,MALE,1971-05-11,,Warszawa,POL
 257108,Stefano,Bonaccini,MALE,1967-01-01,,Modena,ITA
+98341,Eva,Maydell,FEMALE,1986-01-26,,Sofia,BGR
 257257,Hristo,Petrov,MALE,,,,BGR
+24942,Ana,Miranda Paz,FEMALE,1971-05-02,,Cuntis,ESP
+96826,Tamás,Deutsch,MALE,1966-07-27,,Budapest,HUN
+124895,Krzysztof,Hetman,MALE,,,Lublin,POL
+197607,Pietro,Fiocchi,MALE,1964-05-22,,Milano,ITA
+204418,Nora,Mebarek,FEMALE,1972-07-22,,Port-Saint-Louis-du-Rhône,FRA
 257024,Mireia,Borrás Pabón,FEMALE,1986-10-14,,Madrid,ESP
 200345,Pierre-Romain,Thionnet,MALE,1994-01-19,,Pontarlier,FRA
+197404,Jessica,Polfjärd,FEMALE,1971-05-27,,Seoul,SWE
+197606,Javier,Zarzalejos,MALE,1960-06-06,,Bilbao,ESP
 198084,Katri,Kulmuni,FEMALE,1987-09-04,,Tornio,FIN
+124834,Martin,Sonneborn,MALE,,,Göttingen,DEU
 256844,Jaroslava,Pokorná Jermanová,FEMALE,1970-08-17,,Karlovy Vary,CZE
+197517,Adam,Jarubas,MALE,1974-12-17,,Busko-Zdroj,POL
 256839,Anna,Stürgkh,FEMALE,1994-04-02,,Wien,AUT
 256847,Danuše,Nerudová,FEMALE,1979-01-04,,Brno,CZE
+197412,Niclas,Herbst,MALE,1973-02-28,,Ratzeburg,DEU
 257128,Giusi,Princi,FEMALE,1972-09-27,,REGGIO CALABRIA,ITA
+124691,Costas,Mavrides,MALE,1962-05-27,,Kato Dhikomo,CYP
 220896,Reinhold,Lopatka,MALE,1960-01-27,,Vorau,AUT
 267485,Volker,Schnurrbusch,MALE,,,,DEU
+96709,Morten,Løkkegaard,MALE,,,Helsingør,DNK
+22858,Fabienne,Keller,FEMALE,1959-10-20,,Sélestat,FRA
+197426,Sven,Simon,MALE,1978-10-09,,Lahn-Wetzlar,DEU
 256936,Thomas,Bajada,MALE,1994-06-13,,VICTORIA,MLT
+197492,Bartosz,Arłukowicz,MALE,1971-12-30,,Resko,POL
 257151,Letizia,Moratti,FEMALE,1949-11-26,,Milan,ITA
 256969,Friedrich,Pürner,MALE,,,Munich,DEU
+37324,Adina,Vălean,FEMALE,,,Ţintea,ROU
 257120,Diana,Iovanovici Şoşoacă,FEMALE,1975-11-13,,Bucharest,ROU
+122978,Alicia,Homs Ginel,FEMALE,1993-10-15,,Palma de Mallorca,ESP
+230085,Camilla,Laureti,FEMALE,1975-05-20,,Roma,ITA
+96940,Gerben-Jan,Gerbrandy,MALE,1967-06-28,,Den Haag,NLD
+197463,Olivier,Chastel,MALE,1964-11-22,,Liège,BEL
+197781,Malik,Azmani,MALE,1976-01-20,,Heerenveen,NLD
 256834,Elisabeth,Dieringer,FEMALE,1974-05-12,,Villach,AUT
+197503,David,Cormand,MALE,1974-11-30,,Mont Saint Aignan,FRA
 256824,Yannis,Maniatis,MALE,,,,GRC
+124807,Jens,Gieseke,MALE,1971-05-18,,Lingen,DEU
+125012,Daniel,Buda,MALE,1970-01-11,,Com. Românași,ROU
+197534,François-Xavier,Bellamy,MALE,1985-10-11,,Paris,FRA
+125023,Anja,Hazekamp,FEMALE,1968-01-21,,Vlagtwedde,NLD
 257023,Per,Clausen,MALE,1955-02-20,,Kongsvinger,DNK
+28419,Nicola,Zingaretti,MALE,1965-10-11,,Roma,ITA
 257169,Annalisa,Corrado,FEMALE,1973-09-08,,CIVITAVECCHIA,ITA
 25758,Ruth,Firmenich,FEMALE,1964-08-24,,,DEU
 256888,Rody,Tolassy,MALE,1987-09-21,,Pointe-à-Pitre,FRA
+96787,Herbert,Dorfmann,MALE,1969-03-04,,Brixen,ITA
+124866,Ilhan,Kyuchyuk,MALE,1985-09-16,,Sevlievo,BGR
+197441,Predrag Fred,Matić,MALE,1962-06-02,2024-08-23,Pozega,HRV
+197413,Karlo,Ressler,MALE,,,Zagreb,HRV
+197832,Diana,Riba i Giner,FEMALE,,,Barcelona,ESP
 256887,Wouter,Beke,MALE,1974-08-09,,LOMMEL,BEL
+197684,Pernando,Barrena Arza,MALE,1965-11-01,,Pamplona,ESP
+189065,France,Jamet,FEMALE,1961-02-05,,Paris,FRA
+197494,Nathalie,Loiseau,FEMALE,1964-06-01,,Neuilly-sur-Seine,FRA
 257086,Jacek,Ozdoba,MALE,1991-09-22,,Warszawa,POL
 257238,Aodhán,Ó Ríordáin,MALE,1976-07-22,,Dublin,IRL
+251324,Krzysztof,Brejza,MALE,1983-05-16,,Bydgoszcz,POL
 257099,Francesco,Ventola,MALE,1971-05-12,,Canosa di Puglia,ITA
 256935,Sabrina,Repp,FEMALE,1999-02-01,,Rostock,DEU
+197770,Martin,Hojsík,MALE,1977-01-27,,Bratislava,SVK
+124985,Luke Ming,Flanagan,MALE,1972-01-22,,Roscommon,IRL
 256909,Vilis,Krištopans,MALE,,,,LVA
 256938,Tobias,Cremer,MALE,1992-06-30,,Bochum,DEU
+197429,Marion,Walsmann,FEMALE,1963-03-17,,Erfurt,DEU
 257027,Fernando,Navarrete Rojas,MALE,1976-01-24,,Madrid,ESP
 256881,Barbara,Bonte,FEMALE,1983-05-13,,Brussels,BEL
 256911,Arash,Saeidi,MALE,1975-05-25,,Teheran,FRA
@@ -162,88 +322,176 @@ mep_id,first_name,last_name,gender,date_of_birth,date_of_death,hometown,country_
 257155,Danilo,Della Valle,MALE,1983-02-01,,Capua,ITA
 257046,Marta,Wcisło,FEMALE,,,,POL
 257113,Antonella,Sberna,FEMALE,1982-01-11,,Roma,ITA
+4267,Udo,Bullmann,MALE,1956-06-08,,Gießen,DEU
+5392,Lara,Wolters,FEMALE,1986-04-12,,Amsterdam,NLD
+244571,Nikos,Papandreou,MALE,1956-09-29,,"Alameda, California",GRC
 210480,Marta,Temido,FEMALE,1974-03-02,,Coimbra,PRT
+197470,Saskia,Bricmont,FEMALE,1985-03-16,,Tournai,BEL
+96830,Enikő,Győri,FEMALE,1968-07-17,,Budapest,HUN
 256809,Paulius,Saudargas,MALE,1979-03-13,,Kaunas,LTU
+96936,Gabriel,Mato,MALE,1961-04-29,,Madrid,ESP
+197778,Tom,Berendsen,MALE,1983-04-11,,Breda,NLD
+198490,Emmanouil,Fragkos,MALE,1993-06-27,,Chios,GRC
 256900,Fernand,Kartheiser,MALE,1959-09-30,,Luxembourg,LUX
+197841,Liudas,Mažylis,MALE,1954-05-19,,Kaunas,LTU
 257106,Alessandro,Zan,MALE,1973-10-04,,Padova,ITA
+197829,Jorge,Buxadé Villalba,MALE,1975-06-16,,BARCELONA,ESP
+96697,Waldemar,Tomaszewski,MALE,1965-03-03,,Vilnius,LTU
+197818,Billy,Kelleher,MALE,1968-01-20,,Cork,IRL
+197573,Kira Marie,Peter-Hansen,FEMALE,1998-02-23,,Frederiksberg C,DNK
 257048,Paulo,Do Nascimento Cabral,MALE,1981-08-20,,Ponta Delgada,PRT
 257037,Michał,Kobosko,MALE,1968-04-15,,Warszawa,POL
 257091,Dick,Erixon,MALE,,,Stockholm,SWE
 257015,Jaume,Asens Llodrà,MALE,,,Barcelona,ESP
+193419,Christophe,Hansen,MALE,1982-02-21,,WILTZ,LUX
 257051,Andrzej,Buła,MALE,1965-08-28,,,POL
+197526,Martin,Hlaváček,MALE,,,Polička,CZE
 256814,Zala,Tomašič,FEMALE,1995-09-29,,Kranj,SVN
 256893,Pierre,Pimpie,MALE,1971-09-10,,Hyères,FRA
+37312,Christel,Schaldemose,FEMALE,1967-08-04,,Odense,DNK
 257072,Tomasz,Buczek,MALE,1986-04-24,,Kolbuszowa,POL
 256879,Yvan,Verougstraete,MALE,1975-10-06,,Ixelles,BEL
 257127,Ilaria,Salis,FEMALE,,,,ITA
 256965,Kai,Tegethoff,MALE,1984-07-19,,Köln,DEU
 256916,Mārtiņš,Staķis,MALE,1979-07-04,,Tukums,LVA
 257097,Alberico,Gambino,MALE,1967-12-07,,PAGANI,ITA
+197589,Laurence,Farreng,FEMALE,1966-09-06,,Nimes,FRA
 256833,Lena,Schilling,FEMALE,2001-01-08,,Vienna,AUT
+99945,Lena,Düpont,FEMALE,1986-04-30,,Dortmund,DEU
+197466,Jutta,Paulus,FEMALE,1967-05-09,,Giessen,DEU
 257079,Sérgio,Gonçalves,MALE,1979-04-07,,Funchal,PRT
 257040,Nicolás,Pascual de la Parte,MALE,,,,ESP
+197677,Günther,Sidl,MALE,,,St. Pölten,AUT
 256846,Ondřej,Kolář,MALE,,,Prague,CZE
+204336,Miriam,Lexmann,FEMALE,1972-12-02,,Bratislava,SVK
 257058,Daniel,Obajtek,MALE,1976-01-02,,Myslenice,POL
 256813,Vladimir,Prebilič,MALE,1974-05-21,,Ljubljana,SVN
+197469,Assita,Kanko,FEMALE,1980-07-14,,Godyr,BEL
 256810,Mika,Aaltola,MALE,1969-05-02,,Jämsänkoski,FIN
 256830,Elisabeth,Grossmann,FEMALE,1968-11-25,,Graz,AUT
 256976,Brigitte,van den Berg,FEMALE,1989-03-22,,Heemskerk,NLD
+185619,Tiemo,Wölken,MALE,1985-12-05,,Otterndorf,DEU
+197839,Radan,Kanev,MALE,1975-09-30,,Sofia,BGR
+103381,Terry,Reintke,FEMALE,1987-05-09,,Gelsenkirchen,DEU
+197690,André,Rougé,MALE,1961-12-23,,Paris,FRA
 257088,Sofie,Eriksson,FEMALE,1992-12-13,,Gävle,SWE
 256855,Pál,Szekeres,MALE,1964-09-22,,Budapest,HUN
 257137,Marco,Falcone,MALE,1971-01-05,,Catania,ITA
+197447,Irena,Joveva,FEMALE,1989-02-26,,Kranj,SVN
 256820,Georgios,Aftias,MALE,,,,GRC
 256950,Dimitris,Tsiodras,MALE,,,,GRC
 257096,Stefano,Cavedagna,MALE,1989-12-09,,Bologna,ITA
 256840,Jan,Farský,MALE,1979-07-11,,Turnov,CZE
+197658,Dragoş,Benea,MALE,1975-12-18,,Bacău,ROU
 256910,Anthony,Smith,MALE,,,,FRA
+197794,Chiara,Gemma,FEMALE,1968-09-20,,Brindisi,ITA
 256952,Nikos,Pappas,MALE,,,,GRC
 257035,Alma,Ezcurra Almansa,FEMALE,1986-12-11,,Madrid,ESP
+197682,Hannes,Heide,MALE,1966-10-17,,Bad Ischl,AUT
+34232,Kristian,Vigenin,MALE,1975-06-12,,Sofia,BGR
+187917,Marc,Botenga,MALE,1980-12-29,,Bruxelles,BEL
+125104,Romana,Tomc,FEMALE,1965-11-02,,Ljubljana,SVN
 256901,Jean-Marc,Germain,MALE,1966-06-12,,Lyon,FRA
 256925,Laurence,Trochu,FEMALE,1973-07-04,,Nantes,FRA
+38542,Johan,Danielsson,MALE,1982-06-30,,Borlange,SWE
 256983,Jessika,Van Leeuwen,FEMALE,1981-09-10,,,NLD
+124973,Gerolf,Annemans,MALE,1958-11-08,,Antwerpen,BEL
+28229,Manfred,Weber,MALE,1972-07-14,,Niederhatzkofen,DEU
 256902,Emma,Rafowicz,FEMALE,1995-06-24,,Paris,FRA
 256870,Valérie,Devaux,FEMALE,1964-06-19,,Amiens,FRA
 256993,Leire,Pajín,FEMALE,1976-09-16,,San Sebastián,ESP
+125046,Jonás,Fernández,MALE,1979-01-08,,Oviedo,ESP
+96933,Milan,Zver,MALE,1962-05-25,,Ljubljana,SVN
+97236,Marie,Toussaint,FEMALE,1987-05-27,,LILLE,FRA
+197392,Evin,Incir,FEMALE,1984-06-15,,Diyarbakir,SWE
+23868,Monika,Beňová,FEMALE,1968-08-15,,Bratislava,SVK
+112744,Tonino,Picula,MALE,1961-08-31,,Mali Lošinj,HRV
 220871,Rihards,Kols,MALE,1984-12-16,,Riga,LVA
 257104,Ruggero,Razza,MALE,,,Milan,ITA
+4395,Mario,Mantovani,MALE,1950-07-28,,Arconate,ITA
+197432,Jan-Christoph,Oetjen,MALE,1978-02-21,,Rotenburg,DEU
+197490,Magdalena,Adamowicz,FEMALE,,,Słupsk ,POL
+23699,Kateřina,Konečná,FEMALE,1981-01-20,,Nový Jičín,CZE
+197557,Christophe,Grudler,MALE,1965-04-09,,BELFORT,FRA
 256924,Sarah,Knafo,FEMALE,,,,FRA
 256968,Ingeborg,Ter Laak,FEMALE,1973-02-18,,Gouda,NLD
 257298,Ciaran,Mullooly,MALE,1966-09-04,,Longford,IRL
 256842,Gerald,Hauser,MALE,1961-09-30,,St. Jakob im Defereqqental,AUT
+86793,Anna,Cavazzini,FEMALE,1982-12-12,,Schlüchtern,DEU
 257100,Gheorghe,Cârciu,MALE,1973-04-14,,Bixad,ROU
+204400,Adrián,Vázquez Lázara,MALE,1982-05-05,,Madrid,ESP
+28390,Pilar,del Castillo Vera,FEMALE,1952-07-31,,Nador (Marruecos),ESP
+197462,Erik,Marquardt,MALE,1987-10-20,,Neubrandenburg,DEU
 256880,Estelle,Ceulemans,FEMALE,1970-02-12,,Rocourt,BEL
+197433,Katarina,Barley,FEMALE,1968-11-19,,Köln,DEU
 256858,Nikolaos,Anadiotis,MALE,1983-02-10,,Αθηνα,GRC
+197581,Stéphanie,Yon-Courtin,FEMALE,,,Coutances,FRA
 256808,Petras,Gražulis,MALE,,,,LTU
 257140,Carolina,Morace,FEMALE,1964-02-05,,Venezia,ITA
+197646,Mircea-Gheorghe,Hava,MALE,1956-12-26,,Oradea,ROU
 245770,Irene,Montero,FEMALE,1988-02-13,,Madrid,ESP
 256843,Jana,Nagyová,FEMALE,1970-09-26,,Kosice,CZE
 256913,Emma,Fourreau,FEMALE,1999-10-01,,Pontault-Combault,FRA
 257034,Carmen,Crespo Díaz,FEMALE,,,,ESP
 256939,Thomas,Geisel,MALE,1963-10-26,,ELLWANGEN,DEU
 257260,Petar,Volgin,MALE,1969-09-28,,,BGR
+2152,Leoluca,Orlando,MALE,,,Palermo,ITA
 256997,Sandra,Gómez López,FEMALE,1985-07-23,,Valencia,ESP
+197421,Isabel,Wiseler-Lima,FEMALE,1961-12-29,,Odivelas-Loures,LUX
 257078,Paulo,Cunha,MALE,1971-08-22,,Vila Nova de Famalicao,PRT
 257111,Dario,Nardella,MALE,1975-11-20,,Torre del Greco (Na),ITA
+33998,Vasile,Dîncu,MALE,1961-11-25,,Năsăud,ROU
+119435,Davor Ivo,Stier,MALE,1972-01-06,,Buenos Aires,HRV
+840,Charles,Goerens,MALE,1952-02-06,,Ettelbruck,LUX
+124713,Tomáš,Zdechovský,MALE,1979-11-02,,Havlíčkův Brod,CZE
 256871,Malika,Sorel,FEMALE,,,,FRA
 256891,Benoit,Cassart,MALE,1968-10-02,,Liège,BEL
 256864,András Tivadar,Kulja,MALE,1989-09-17,,Nyiregyhaza,HUN
 256979,Oliver,Schenk,MALE,1968-08-14,,Dachau,DEU
+2341,Michael,Gahler,MALE,1960-04-22,,Frankfurt/Main,DEU
 256973,Stefan,Köhler,MALE,1967-09-24,,Aschaffenburg,DEU
+197763,Milan,Uhrík,MALE,,,Nové Zámky,SVK
+197448,Rasmus,Andresen,MALE,1986-02-20,,Essen,DEU
+130100,Hilde,Vautmans,FEMALE,1972-05-02,,Sint-Truiden,BEL
 257261,Ilia,Lazarov,MALE,,,,BGR
 256863,Zoltán,Tarr,MALE,1972-02-12,,,HUN
+197523,Łukasz,Kohut,MALE,1982-09-10,,Katowice,POL
+197578,Silvia,Sardone,FEMALE,1982-12-25,,Milan,ITA
 257031,Dariusz,Joński,MALE,1979-01-12,,Łódź,POL
 220908,Branko,Grims,MALE,1962-08-26,,Kranj,SVN
 257150,Michele,Picaro,MALE,1981-05-15,,Bari,ITA
 257016,Vicent,Marzà Ibáñez,MALE,1983-03-03,,Castelló de la Plana,ESP
+28122,David,Casa,MALE,1968-11-16,,Valletta,MLT
 113523,Peter,Agius,MALE,1979-04-09,,St. Julians,MLT
+124795,Flavio,Tosi,MALE,1969-06-18,,Verona,ITA
 256926,Marie-Agnes,Strack-Zimmermann,FEMALE,1958-03-10,,Düsseldorf,DEU
+1909,Bernd,Lange,MALE,1955-11-14,,Oldenburg,DEU
 256807,Dainius,Žalimas,MALE,1973-05-22,,Vilnius,LTU
+124766,Petras,Auštrevičius,MALE,1963-05-16,,Vilnius,LTU
+28219,Daniel,Caspary,MALE,1976-04-04,,Karlsruhe,DEU
+188945,Dennis,Radtke,MALE,1979-04-29,,Bochum,DEU
+197493,Jaak,Madison,MALE,1991-04-22,,Paide,EST
+183916,Alexandra,Geese,FEMALE,1968-07-01,,Lippstadt,DEU
 257125,Roberto,Vannacci,MALE,1968-10-20,,LA SPEZIA,ITA
+28400,Francisco José,Millán Mon,MALE,1955-03-08,,Pontevedra,ESP
+124850,Emil,Radev,MALE,1971-05-26,,Varna,BGR
 257082,Jagna,Marczułajtis-Walczak,FEMALE,1978-12-15,,Zakopane,POL
 257300,Michael,McNamara,MALE,1974-03-01,,Limerick,IRL
+96711,Pascal,Canfin,MALE,1974-08-22,,Arras,FRA
+197825,Raffaele,Stancanelli,MALE,1950-06-30,,Regalbuto,ITA
+197702,Lina,Gálvez,FEMALE,1969-09-13,,Sevilla,ESP
+197718,Nicolás,González Casares,MALE,1972-07-20,,A Coruña,ESP
 257457,Zsuzsanna,Borvendég,FEMALE,1974-11-04,,,HUN
+124984,Lynn,Boylan,FEMALE,1976-11-29,,Dublin,IRL
+197697,Aurore,Lalucq,FEMALE,,,Longjumeau,FRA
+28226,Christian,Ehler,MALE,1963-08-17,,München,DEU
+97968,Andrey,Kovatchev,MALE,1967-12-13,,Sofia,BGR
+193292,Tilly,Metz,FEMALE,1967-05-26,,Luxembourg,LUX
+197525,Ewa,Kopacz,FEMALE,1956-12-03,,Skaryszew,POL
 257256,Taner,Kabilov,MALE,1987-04-28,,Plovdiv,BGR
+197481,Maximilian,Krah,MALE,1977-01-28,,Dresden,DEU
 257029,Jorge,Martín Frías,MALE,1980-04-08,,Madrid,ESP
+124701,Luděk,Niedermayer,MALE,1966-03-13,,Brno,CZE
 256850,Filip,Turek,MALE,1985-10-15,,Prague,CZE
 256890,Rudi,Kennes,MALE,1959-07-22,,Niel,BEL
 257021,Diego,Solier,MALE,1980-04-26,,Valencia,ESP
@@ -251,120 +499,233 @@ mep_id,first_name,last_name,gender,date_of_birth,date_of_death,hometown,country_
 257262,Rada,Laykova,FEMALE,,,,BGR
 256862,Dóra,Dávid,FEMALE,,,Pecs,HUN
 257126,Gaetano,Pedulla',MALE,1967-01-05,,Catania,ITA
+197391,Heléne,Fritzon,FEMALE,1960-09-29,,Kristianstad,SWE
 257039,Elena,Nevado del Campo,FEMALE,1967-01-26,,Cáceres,ESP
+197845,Tsvetelina,Penkova,FEMALE,1988-02-19,,Sofia,BGR
+101039,Paolo,Borchia,MALE,1980-05-27,,NEGRAR,ITA
+96808,Pablo,Arias Echeverría,MALE,1970-06-30,,Madrid,ESP
 256960,Sibylle,Berg,NKN,,,,DEU
 256811,Aurelijus,Veryga,MALE,1976-08-08,,Užventis,LTU
 256961,Sebastian,Everding,MALE,1983-01-11,,Dortmund,DEU
+197395,Alice,Kuhnke,FEMALE,1971-12-21,,Malmö,SWE
 256929,René,Aust,MALE,1987-04-24,,Luedinghausen,DEU
 257145,Daniele,Polato,MALE,1975-06-04,,Verona,ITA
 257299,Kathleen,Funchion,FEMALE,1981-04-22,,Kilkenny,IRL
+197537,Alexandr,Vondra,MALE,1961-08-17,,Praha,CZE
+197722,Nacho,Sánchez Amor,MALE,1960-05-15,,Cáceres,ESP
+197445,Moritz,Körner,MALE,1990-08-03,,Wiesbaden,DEU
 257056,Mariusz,Kamiński,MALE,1965-09-25,,Sochaczew,POL
 257011,Lucia,Yar,FEMALE,1987-05-15,,Snina,SVK
 30123,Guillaume,Peltier,MALE,,,,FRA
+124858,Fabio,De Masi,MALE,1980-03-07,,Groß-Gerau,DEU
+197577,Gilles,Boyer,MALE,,,Paris,FRA
 256882,Julie,Rechagneux,FEMALE,1996-01-24,,Clermont Ferrand,FRA
+197529,Leila,Chaibi,FEMALE,1982-10-05,,Dijon,FRA
+197653,Claudiu,Manda,MALE,1975-12-20,,Craiova,ROU
 249982,Milan,Mazurek,MALE,1994-01-24,,,SVK
+251874,Niels,Geuking,MALE,1992-11-17,,Coesfeld,DEU
+190517,Martin,Schirdewan,MALE,,,Berlin,DEU
+123562,Charlie,Weimers,MALE,1982-11-12,,HAMMARÖ,SWE
 257170,Sandro,Ruotolo,MALE,1955-07-09,,Napoli,ITA
 256883,Aleksandar,Nikolic,MALE,1986-10-04,,La Garenne-Colombes,FRA
 256860,András,László,MALE,,,,HUN
 256869,Grégory,Allione,MALE,1971-07-25,,Toulon,FRA
+96668,Seán,Kelly,MALE,1952-04-26,,Killarney,IRL
+125042,Javi,López,MALE,1985-11-11,,Madrid,ESP
+197414,Loucas,Fourlas,MALE,1969-08-21,,Lemesos,CYP
 256959,Alexander,Sell,MALE,1980-11-25,,,DEU
+94649,Catherine,Griset,FEMALE,1972-08-20,,Boulogne-sur-Mer,FRA
 111412,Villy,Søvndal,MALE,1952-04-04,,Struer,DNK
+124884,Kosma,Złotowski,MALE,1964-01-14,,Bydgoszcz,POL
+1927,Peter,Liese,MALE,1965-05-20,,OLSBERG,DEU
 256851,Ondřej,Dostál,MALE,,,Chomutov,CZE
 257122,Antonio,Decaro,MALE,1970-07-17,,Bari,ITA
 256894,Sylvie,Josserand,FEMALE,,,,FRA
+197468,Özlem,Demirel,FEMALE,1984-03-10,,Malatya,DEU
 262021,Hanna,Gronkiewicz-Waltz,FEMALE,1952-11-04,,Warszawa,POL
+28223,Andreas,Schwab,MALE,,,Rottweil,DEU
 257107,Virgil-Daniel,Popescu,MALE,1968-04-25,,Drobeta Turnu Severin,ROU
 256941,Alexander,Jungbluth,MALE,1987-02-07,,WUERSELEN,DEU
+125670,Massimiliano,Salini,MALE,1973-03-11,,Soresina (CR),ITA
 256861,Kinga,Kollár,FEMALE,1978-03-06,,Esztergom,HUN
 256898,Pierre,Jouvet,MALE,1986-10-06,,Valence,FRA
 256927,Carola,Rackete,FEMALE,1988-05-08,,Preetz,DEU
 257143,Mariateresa,Vivaldini,FEMALE,1967-11-22,,Brescia,ITA
 256854,Balázs,Győrffy,MALE,1979-04-21,,Papa,HUN
+125052,Juan Carlos,Girauta Vidal,MALE,1961-03-12,,Barcelona,ESP
 256896,Angéline,Furet,FEMALE,1981-07-24,,Le Mans,FRA
 257043,Maravillas,Abadía Jover,FEMALE,1981-12-08,,Murcia,ESP
 256974,Verena,Mertens,FEMALE,1981-11-20,,Salzkotten,DEU
+23788,Adam,Bielan,MALE,1974-09-12,,Gdańsk,POL
 257044,Rasmus,Nordqvist,MALE,1975-07-18,,Copenhagen,DNK
 256977,Andrea,Wechsler,FEMALE,,,,DEU
 256964,Nela,Riehl,FEMALE,1985-09-11,,Hamburg,DEU
+204414,Margarita,de la Pisa Carrión,FEMALE,1975-09-19,,Madrid,ESP
+125065,Elissavet,Vozemberg-Vrionidi,FEMALE,1956-09-14,,Athina,GRC
 257237,Regina,Doherty,FEMALE,1971-01-26,,Dublin,IRL
 256876,Anne-Sophie,Frigout,FEMALE,1991-04-11,,Reims,FRA
 88552,Julien,Sanchez,MALE,1983-10-19,,Argenteuil,FRA
 256922,Marion,Maréchal,FEMALE,1989-12-10,,,FRA
 219652,Matej,Tonin,MALE,1983-07-30,,Ljubljana,SVN
+28615,Roberts,Zīle,MALE,1958-06-20,,Rīga,LVA
 257009,Isabel,Serra Sánchez,FEMALE,,,,ESP
 257094,Giovanni,Crosetto,MALE,1990-08-12,,Savigliano,ITA
+197498,Robert,Biedroń,MALE,1976-04-13,,Rymanów,POL
+197824,Giuseppe,Milazzo,MALE,1977-08-21,,Palermo,ITA
+95074,Jeroen,Lenaers,MALE,1984-04-29,,Stramproy,NLD
+197528,Ondřej,Knotek,MALE,1984-08-31,,Sušice,CZE
 256945,Irmhild,Boßdorf,FEMALE,,,,DEU
 256947,Fredis,Beleris,MALE,1972-08-09,,Himarë,GRC
 91636,Marit,Maij,FEMALE,1972-01-16,,Apeldoorn,NLD
+197719,Cristina,Maestre,FEMALE,1975-07-27,,Ciudad Real,ESP
 256956,Galato,Alexandraki,FEMALE,,,,GRC
 256805,Li,Andersson,FEMALE,1987-05-13,,Turku,FIN
+28399,Antonio,López-Istúriz White,MALE,1970-04-01,,Pamplona,ESP
+131580,Jordan,Bardella,MALE,1995-09-13,,Drancy,FRA
+197694,Raphaël,Glucksmann,MALE,1979-10-15,,Boulogne-Billancourt,FRA
+118859,Roberta,Metsola,FEMALE,1979-01-18,,St Julians,MLT
+197417,Tomislav,Sokol,MALE,1982-09-20,,Zagreb,HRV
+197502,Marie-Pierre,Vedrenne,FEMALE,1982-12-13,,Limoges,FRA
 257147,Alessandro,Ciriani,MALE,1970-08-02,,Pordenone,ITA
+206158,Manuela,Ripa,FEMALE,,,Saarbrücken,DEU
+124715,György,Hölvényi,MALE,,,Budapest,HUN
 257032,Kamila,Gasiuk-Pihowicz,FEMALE,1983-05-08,,Warszawa,POL
 256912,Rima,Hassan,FEMALE,1992-04-28,,Alep,FRA
 256985,Michalis,Hadjipantela,MALE,,,,CYP
 257002,José,Cepeda,MALE,1968-07-19,,Ciudad Real,ESP
+124760,Nicolas,Bay,MALE,1977-12-21,,Saint-Germain-en-Laye,FRA
+197491,Marina,Kaljurand,FEMALE,1962-09-06,,Tallinn,EST
 257098,Gabriela,Firea,FEMALE,1972-07-13,,BACAU,ROU
 256986,Geadis,Geadi,MALE,,,,CYP
 256905,Eric,Sargiacomo,MALE,1969-10-31,,LOUHANS,FRA
 257055,Małgorzata,Gosiewska,FEMALE,,,Gdansk,POL
 257116,Georgiana,Teodorescu,FEMALE,1985-08-19,,,ROU
+185341,Željana,Zovko,FEMALE,,,Mostar,HRV
 256904,Chloé,Ridel,FEMALE,1991-11-25,,Clamart,FRA
 257010,Ľudovít,Ódor,MALE,1976-07-02,,Komárno,SVK
 257065,Sérgio,Humberto,MALE,1975-11-07,,Trofa,PRT
 256806,Sebastian,Tynkkynen,MALE,1989-03-08,,Lohtaja,FIN
 256995,Gordan,Bosanac,MALE,1973-09-18,,Zagreb,HRV
 256944,Hans,Neuhoff,MALE,1959-01-10,,Bonn,DEU
+23816,András,Gyürk,MALE,1972-12-02,,Budapest,HUN
+197400,Abir,Al-Sahlani,FEMALE,1976-05-18,,Basra,SWE
+197772,Tineke,Strik,FEMALE,1961-09-28,,Appeltern,NLD
+39725,Iuliu,Winkler,MALE,1964-03-14,,Hunedoara,ROU
+197516,Patryk,Jaki,MALE,1985-05-11,,Opole,POL
 257085,Krzysztof,Śmiszek,MALE,1979-08-25,,STALOWA WOLA,POL
 257080,Piotr,Müller,MALE,1989-05-02,,Słupsk,POL
 256948,Arno,Bausemer,MALE,,,,DEU
 125204,Borja,Giménez Larraz,MALE,,,,ESP
 257062,Stanisław,Tyszka,MALE,1979-04-11,,Warszawa,POL
+98582,Loránt,Vincze,MALE,1977-11-03,,Târgu Mureș / Marosvásárhely,ROU
 256951,Anja,Arndt,FEMALE,,,"Groß Neßhausen, Tettens/Wangerland",DEU
 257124,Giuseppe,Lupo,MALE,1966-03-18,,Palermo,ITA
 257073,Tobiasz,Bocheński,MALE,1987-12-15,,Lodz,POL
+197810,Nils,Ušakovs,MALE,1976-06-08,,RIGA,LVA
+96791,Elżbieta Katarzyna,Łukacijewska,FEMALE,1966-11-25,,Jasło,POL
+124867,Brando,Benifei,MALE,1986-01-01,,La Spezia,ITA
+197408,Hildegard,Bentele,FEMALE,1976-05-22,,Ludwigsburg,DEU
+36392,Aldo,Patriciello,MALE,1957-09-27,,Venafro,ITA
+197734,Lefteris,Nikolaou-Alavanos,MALE,1985-02-07,,Athens,GRC
 257437,Catarina,Vieira,FEMALE,1996-05-14,,,NLD
+197501,Joachim Stanisław,Brudziński,MALE,1968-02-04,,Świerklaniec,POL
 256946,Christine,Singer,FEMALE,,,,DEU
 126699,Gilles,Pennelle,MALE,1962-07-20,,DIEPPE,FRA
+124875,Anders,Vistisen,MALE,1987-11-12,,Viborg,DNK
+197627,Virginie,Joron,FEMALE,1973-12-11,,Troyes,FRA
 257118,Luis-Vicențiu,Lazarus,MALE,1967-03-12,,Drobeta- Turnu Severin,ROU
+197652,Angelika,Winzig,FEMALE,,,Attnang-Puchheim,AUT
 257030,Raúl,de la Hoz Quintano,MALE,,,Palencia,ESP
 257052,Maciej,Wąsik,MALE,1969-10-16,,Warszawa,POL
+2268,Jonas,Sjöstedt,MALE,1964-12-25,,Göteborg,SWE
 256921,Laurent,Castillo,MALE,1962-03-12,,Casablanca,FRA
 257014,Veronika,Cifrová Ostrihoňová,FEMALE,1989-02-03,,Bratislava,SVK
 256841,Helmut,Brandstätter,MALE,1955-04-24,,Wien,AUT
 257041,Jacek,Protas,MALE,1964-01-15,,Lidzbark Warmiński,POL
+197405,Jörgen,Warborn,MALE,1969-01-23,,Varberg,SWE
 256992,Hana,Jalloul Muro,FEMALE,1978-04-08,,Zaragoza,ESP
+24922,Pascal,Arimont,MALE,1974-09-25,,Malmedy,BEL
+96681,Vilija,Blinkevičiūtė,FEMALE,1960-03-03,,Linkuva,LTU
+197440,Delara,Burkhardt,FEMALE,1992-11-03,,Hamburg,DEU
+197449,Michael,Bloss,MALE,1986-11-06,,Filderstadt,DEU
 256865,Eszter,Lakos,FEMALE,1981-03-08,,GYOR,HUN
+197842,Elena,Yoncheva,FEMALE,1964-05-27,,Sofia,BGR
 86057,Bartłomiej,Sienkiewicz,MALE,1961-07-29,,Kielce,POL
+197556,Ivan,David,MALE,1952-09-24,,Praha,CZE
 257022,Nora,Junco García,FEMALE,,,,ESP
+198176,Roman,Haider,MALE,1967-04-13,,Grieskirchen,AUT
+197443,Andreas,Glück,MALE,1975-03-08,,Münsingen,DEU
+197648,Alexander,Bernhuber,MALE,1992-05-18,,St. Polten,AUT
+107212,Andrey,Novakov,MALE,1988-07-07,,PAZARDZHIK,BGR
+5736,Alexandre,Varaut,MALE,1966-01-18,,Neuilly sur Seine,FRA
+197444,Svenja,Hahn,FEMALE,1989-07-25,,Hamburg,DEU
 256998,Rachel,Blom,FEMALE,1987-10-07,,Rotterdam,NLD
+124802,Siegfried,Mureşan,MALE,1981-09-20,,Hunedoara,ROU
 188096,Jüri,Ratas,MALE,1978-07-02,,Tallinn,EST
 256857,Viktória,Ferenc,FEMALE,1984-06-12,,Uzhhorod,HUN
+214839,Emma,Wiesner,FEMALE,1992-11-11,,Västerås,SWE
 260724,Csaba,Dömötör,MALE,1982-09-13,,Budapest,HUN
 257003,Jeannette,Baljeu,FEMALE,1967-08-07,,,NLD
 257131,Anna Maria,Cisint,FEMALE,,,Cormons,ITA
+204413,Marcos,Ros Sempere,MALE,1974-03-24,,Murcia,ESP
+197497,Sven,Mikser,MALE,1973-11-08,,Tartu,EST
+197533,Manon,Aubry,FEMALE,1989-12-22,,Frejus,FRA
+197691,Mathilde,Androuët,FEMALE,1984-07-03,,Rueil Malmaison,FRA
 257066,André,Rodrigues,MALE,1977-02-12,,Ponta Delgada,PRT
+124846,Pina,Picierno,FEMALE,1981-05-10,,S.  Maria Capua Vetere,ITA
 256895,Julien,Leonardelli,MALE,1987-07-14,,Lavelanet,FRA
+197406,Arba,Kokalari,FEMALE,1986-11-27,,Tirana,SWE
+197422,Christine,Schneider,FEMALE,1972-06-05,,Landau,DEU
+197672,Eugen,Tomac,MALE,1981-06-27,,Ismail,ROU
 261038,Tomáš,Kubín,MALE,1962-07-24,,Jindřichův Hradec,CZE
+249603,Martine,Kemp,FEMALE,1994-07-08,,Luxembourg,LUX
 256872,Fabrice,Leggeri,MALE,1968-03-28,,Mulhouse,FRA
+5729,Kathleen,Van Brempt,FEMALE,1969-11-18,,Wilrijk,BEL
 256803,Maria,Guzenina,FEMALE,1969-01-12,,Helsinki,FIN
 257047,Borys,Budka,MALE,1978-03-11,,Czeladz,POL
 256877,Pascale,Piera,FEMALE,1967-02-23,,Chatou,FRA
+124806,David,McAllister,MALE,1971-01-12,,Berlin,DEU
+58766,Nicolae,Ştefănuță,MALE,1982-01-03,,Rășinari,ROU
 257012,Estrella,Galán,FEMALE,1971-04-24,,Madrid,ESP
+72779,Nadine,Morano,FEMALE,1963-11-06,,Nancy,FRA
+197769,Michal,Wiezik,MALE,1979-06-14,,Martin,SVK
 256937,Vivien,Costanzo,FEMALE,1990-02-06,,HEPPENHEIM,DEU
 257301,Cynthia,Ní Mhurchú,FEMALE,,,,IRL
 257064,Anna,Bryłka,FEMALE,,,Koło,POL
+190464,Thomas,Waitz,MALE,1973-05-16,,Vienna,AUT
+4289,Angelika,Niebler,FEMALE,1963-02-18,,München,DEU
+197473,Christian,Doleschal,MALE,1988-04-27,,KEMNATH,DEU
 257028,Henrik,Dahl,MALE,1960-02-20,,Aarhus,DNK
 257727,Pierfrancesco,Maran,MALE,1980-05-27,,Milano,ITA
 257259,Nikola,Minchev,MALE,,,,BGR
+197623,Thierry,Mariani,MALE,1958-08-08,,ORANGE,FRA
+96725,Bas,Eickhout,MALE,1976-10-08,,Groesbeek,NLD
+112748,Biljana,Borzan,FEMALE,1971-11-29,,Osijek,HRV
+125001,Harald,Vilimsky,MALE,1966-07-22,,Wien,AUT
+197649,Gheorghe,Falcă,MALE,1967-01-22,,Brad,ROU
 257060,Arkadiusz,Mularczyk,MALE,1971-02-04,,Racibórz,POL
 257115,Gheorghe,Piperea,MALE,1970-03-01,,Singureni,ROU
+197500,Mounir,Satouri,MALE,1975-05-25,,Casablanca,FRA
 256967,Jan-Peter,Warnke,MALE,,,Dresden,DEU
+135511,Valérie,Hayer,FEMALE,1986-04-06,,Château-Gontier,FRA
+96932,Birgit,Sippel,FEMALE,1960-01-29,,Bochum,DEU
 256994,Idoia,Mendia,FEMALE,,,,ESP
 256954,Afroditi,Latinopoulou,FEMALE,,,,GRC
+197553,Beata,Szydło,FEMALE,1963-04-15,,Oswiecim,POL
+197782,Mohammed,Chahim,MALE,1985-04-18,,Fes,NLD
+124813,Dario,Tamburrano,MALE,1969-08-27,,Roma,ITA
 257438,Anouk,Van Brug,FEMALE,1992-09-14,,Amsterdam,NLD
+124736,Merja,Kyllönen,FEMALE,1977-01-25,,Suomussalmi,FIN
 220801,Sophie,Wilmès,FEMALE,1975-01-15,,,BEL
+199941,Marianne,Vind,FEMALE,1970-12-03,,Koge,DNK
 190574,Tomasz,Froelich,MALE,1988-10-15,,Hamburg,DEU
 256990,Anna,Strolenberg,FEMALE,1995-07-23,,Utrecht,NLD
 257110,Dan,Barna,MALE,1975-07-10,,Sibiu,ROU
+124799,Alessandra,Moretti,FEMALE,,,Vicenza,ITA
+40599,Sirpa,Pietikäinen,FEMALE,1959-04-19,,Parikkala,FIN
+197574,Damien,Carême,MALE,1960-11-16,,Joeuf,FRA
 257117,Adrian-George,Axinia,MALE,,,Focsani,ROU
+28307,Francisco,Assis,MALE,1965-01-08,,Amarante,PRT
+125106,Johan,Van Overtveldt,MALE,1955-08-24,,Mortsel,BEL
 257084,Joanna,Scheuring-Wielgus,FEMALE,1972-02-08,,Torun,POL
+124726,Henna,Virkkunen,FEMALE,1972-06-04,,Joutsa,FIN

@@ -50,7 +50,8 @@ class Membership(models.Model):
     mep = models.ForeignKey(MEP, on_delete=models.CASCADE)
     group = models.ForeignKey(PoliticalGroup, on_delete=models.CASCADE)
     start_date = models.DateField(null=True)
-    end_date   = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+    parliamentary_term = models.IntegerField(null=True)
 
     def __str__(self):
         return f"{self.mep} - {self.group}"
